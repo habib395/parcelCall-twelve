@@ -15,7 +15,7 @@ const OurFeature = () => {
         <SectionTitle heading={'Our Features'}></SectionTitle>
       <div className="sm:flex flex-cols items-center justify-center">
         <div
-          className="text-white bg-blue-400 shadow-2xl p-3 lg:p-10 m-5 rounded-lg lg:w-full"
+          className="bg-base-200 shadow-xl p-3 lg:p-10 m-5 rounded-lg lg:w-full"
           data-aos="fade-down"
         >
           <p className="text-2xl lg:text-5xl">
@@ -29,7 +29,7 @@ const OurFeature = () => {
           </p>
         </div>
         <div
-          className="text-white bg-blue-400 shadow-2xl p-3 lg:p-10 m-5 rounded-lg md:w-full"
+          className="bg-base-200 shadow-xl p-3 lg:p-10 m-5 rounded-lg md:w-full"
           data-aos="fade-up"
         >
           <p className="text-2xl lg:text-5xl">
@@ -44,7 +44,7 @@ const OurFeature = () => {
           </p>
         </div>
         <div
-          className="text-white bg-blue-400 shadow-2xl p-3 lg:p-10 m-5 rounded-lg md:w-full"
+          className="bg-base-200 shadow-xl p-3 lg:p-10 m-5 rounded-lg md:w-full"
           data-aos="fade-down"
         >
           <p className="text-2xl lg:text-5xl">
