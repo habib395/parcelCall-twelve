@@ -4,6 +4,7 @@ import { TbFidgetSpinner } from 'react-icons/tb'
 import useAuth from './../../hooks/useAuth';
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import axios from 'axios'
 
 const Register = () => {
   const { createUser, updateUserProfile, signInWithGoogle, loading } = useAuth()
@@ -16,6 +17,20 @@ const Register = () => {
     const email = form.email.value
     const password = form.password.value
     const image = form.image.files[0]
+    const formData = new FormData()
+    formData.append('image', image)
+
+    //send data to the imgbb
+    const { data } = await axios.post(
+      `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_APT_KEY}`,
+      formData
+    )
+    return console.log(data.data.display_url)
+
+
+
+
+
 
     try {
       //2. User Registration

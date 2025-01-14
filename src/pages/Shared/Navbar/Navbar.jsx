@@ -1,16 +1,20 @@
-import React from "react";
+import { IoIosNotifications } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div className="navbar fixed z-10 bg-opacity-30 text-white bg-black">
-      <div className="flex-1">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
-      </div>
-      <div className="flex-none text-black">
-        <div>
-            <a className="text-sm text-white px-2">Home</a>
+      <div className="w-11/12 mx-auto navbar">
+        <div className="flex-1">
+          <Link to="/" className="btn btn-ghost text-xl">daisyUI</Link>
         </div>
-        <div className="dropdown text-white dropdown-end">
+        <div className="flex-none text-black">
+            <Link to="/" className="text-sm text-white px-2">Home</Link>
+          <div className="text-white text-xl">
+            <IoIosNotifications />
+          </div>
+         <Link to="/login" className="text-sm text-white px-2">Login</Link>
+          {/* <div className="dropdown text-white dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <div className="indicator">
               <svg
@@ -72,6 +76,7 @@ const Navbar = () => {
               <a>Logout</a>
             </li>
           </ul>
+        </div> */}
         </div>
       </div>
     </div>
