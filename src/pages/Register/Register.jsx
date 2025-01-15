@@ -5,6 +5,7 @@ import useAuth from './../../hooks/useAuth';
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from 'axios'
+import { imageUpload } from "../../api/utils";
 
 const Register = () => {
   const { createUser, updateUserProfile, signInWithGoogle, loading } = useAuth()
@@ -17,28 +18,19 @@ const Register = () => {
     const email = form.email.value
     const password = form.password.value
     const image = form.image.files[0]
-    const formData = new FormData()
-    formData.append('image', image)
+    
 
     //send data to the imgbb
-    const { data } = await axios.post(
-      `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_APT_KEY}`,
-      formData
-    )
-    return console.log(data.data.display_url)
-
-
-
-
-
+    const photoURL = await imageUpload(image)
+    console.log(photoURL)
 
     try {
       //2. User Registration
       const result = await createUser(email, password)
 
       //3. Save username & profile photo
-      // await updateUserProfile(name, photoURL)
-      // console.log(result)
+      await updateUserProfile(name, photoURL)
+      console.log(result)
       // save user info in db if the user is new
       // await saveUser({ ...result?.user, displayName: name, photoURL })
       navigate('/')

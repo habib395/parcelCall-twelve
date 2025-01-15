@@ -1,9 +1,12 @@
 import React from "react";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const Statistic = () => {
   return (
-    <div className="flex">
-      <div className="bg-base-200 shadow-xl p-3 lg:p-10 m-5 rounded-lg md:w-full">
+    <div className="py-5">
+      <SectionTitle heading={'Statistic'}></SectionTitle>
+     <div className="flex">
+     <div className="bg-base-200 shadow-xl p-3 lg:p-10 m-5 rounded-lg md:w-full">
         <h2 className="text-xl lg:text-2xl font-bold text-center pb-2">
           Total Parcels Booked
         </h2>
@@ -21,6 +24,7 @@ const Statistic = () => {
         </h2>
         <p className="text-center text-2xl">5</p>
       </div>
+     </div>
     </div>
   );
 };
