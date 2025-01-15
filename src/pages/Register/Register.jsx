@@ -22,10 +22,9 @@ const Register = () => {
 
     //send data to the imgbb
     const photoURL = await imageUpload(image)
-    console.log(photoURL)
+    // console.log(photoURL)
 
     try {
-      //2. User Registration
       const result = await createUser(email, password)
 
       //3. Save username & profile photo
@@ -131,6 +130,7 @@ const Register = () => {
               type="submit"
               className="bg-lime-500 w-full rounded-md py-3 text-white"
             >
+              {/* continue */}
               {loading ? (
                 <TbFidgetSpinner className="animate-spin m-auto" />
               ) : (
