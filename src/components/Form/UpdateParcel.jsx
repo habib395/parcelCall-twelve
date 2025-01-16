@@ -1,16 +1,13 @@
-import SectionTitle from "./../SectionTitle/SectionTitle";
-import useAuth from "../../hooks/useAuth";
+import React from "react";
 
-const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
+const UpdateParcel = ({ handleSubmit }) => {
     const { user } = useAuth()
-    // console.log(user) gap-2
   return (
     <div className="w-full p-4 sm:p-16 text-gray-800 rounded-xl bg-gray-50">
       <form onSubmit={handleSubmit}>
-        <SectionTitle heading='Book A Parcel'></SectionTitle>
         {/*row one */}
         <div className="md:flex gap-4">
-        {/* name */}
+          {/* name */}
           <div className="form-control md:w-1/2">
             <label className="label">
               <span className="label-text">Name</span>
@@ -41,7 +38,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
         </div>
         {/* row two */}
         <div className="md:flex gap-4">
-        {/* phone number */}
+          {/* phone number */}
           <div className="form-control md:w-1/2">
             <label className="label">
               <span className="label-text">Phone Number</span>
@@ -50,7 +47,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
               type="number"
               name="phone"
               placeholder="Phone Number"
-            //   defaultValue={user && user.displayName}
+              //   defaultValue={user && user.displayName}
               className="input input-bordered"
               required
             />
@@ -64,7 +61,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
               type="text"
               name="type"
               placeholder="Parcel Type"
-            //   defaultValue={user && user.email}
+              //   defaultValue={user && user.email}
               className="input input-bordered"
               required
             />
@@ -72,7 +69,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
         </div>
         {/* row three */}
         <div className="md:flex gap-4">
-        {/* Parcel Weight */}
+          {/* Parcel Weight */}
           <div className="form-control md:w-1/2">
             <label className="label">
               <span className="label-text">Parcel Weight</span>
@@ -81,7 +78,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
               type="number"
               name="weight"
               placeholder="Parcel Weight"
-            //   defaultValue={user && user.displayName}
+              //   defaultValue={user && user.displayName}
               className="input input-bordered"
               required
             />
@@ -102,7 +99,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
         </div>
         {/* row four*/}
         <div className="md:flex gap-4">
-        {/* rename phone */}
+          {/* rename phone */}
           <div className="form-control md:w-1/2">
             <label className="label">
               <span className="label-text">Receiver's Phone Number</span>
@@ -131,7 +128,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
         </div>
         {/* row five*/}
         <div className="md:flex gap-4">
-        {/* delivery data */}
+          {/* delivery data */}
           <div className="form-control md:w-1/2">
             <label className="label">
               <span className="label-text">Requested Delivery Date</span>
@@ -153,7 +150,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
               type="text"
               name="latitude"
               placeholder="Delivery Address Latitude"
-            //   defaultValue={user && user.email}
+              //   defaultValue={user && user.email}
               className="input input-bordered"
               required
             />
@@ -161,7 +158,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
         </div>
         {/* row six*/}
         <div className="md:flex gap-4">
-        {/* longitude */}
+          {/* longitude */}
           <div className="form-control md:w-1/2">
             <label className="label">
               <span className="label-text">Delivery Addres Longitude</span>
@@ -170,7 +167,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
               type="text"
               name="longitude"
               placeholder="Requested Delivery Date"
-            //   defaultValue={user && user.displayName}
+              //   defaultValue={user && user.displayName}
               className="input input-bordered"
               required
             />
@@ -184,7 +181,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
               type="number"
               name="price"
               placeholder="Delivery Address Latitude"
-            //   defaultValue={user && user.email}
+              //   defaultValue={user && user.email}
               className="input input-bordered"
               required
             />
@@ -192,7 +189,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
         </div>
         <input
           type="submit"
-          value="submit"
+          value="Update"
           className="btn btn-block bg-blue-400 my-3"
         />
       </form>
@@ -200,5 +197,4 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
   );
 };
 
-export default AddParcel;
-
+export default UpdateParcel;
