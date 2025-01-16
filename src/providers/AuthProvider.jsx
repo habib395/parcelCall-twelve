@@ -54,13 +54,14 @@ const AuthProvider = ({ children }) => {
       // console.log(currentUser)
       if (currentUser?.email) {
         setUser(currentUser)
+        console.log(currentUser)
         //save user info in db
         await axios.post(
           `${import.meta.env.VITE_API_URL}/users/${currentUser?.email}`,
           {
+            email: currentUser?.email,
             name: currentUser?.displayName,
             image: currentUser?.photoURL,
-            email: currentUser?.email,
           }
         )
 

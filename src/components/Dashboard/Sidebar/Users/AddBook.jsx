@@ -72,7 +72,7 @@ const AddBook = () => {
             users
         }
         
-        console.table(bookData)
+        // console.table(bookData)
 
 
         // save bookData in db

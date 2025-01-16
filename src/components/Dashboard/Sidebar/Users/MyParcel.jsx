@@ -7,9 +7,9 @@ import useAuth from "../../../../hooks/useAuth";
 // import LoadingSpinner from './../../../../pages/Shared/LoadingSpinner';
 
 const MyParcel = () => {
-    // const axiosSecure = useAxiosSecure()
+    const axiosSecure = useAxiosSecure()
     const { user } = useAuth()
-    console.log(user)
+    // console.log(user)
      
     const {
         data: books = [],
@@ -18,11 +18,11 @@ const MyParcel = () => {
     } = useQuery({
         queryKey: ['books'],
         queryFn: async () => {
-           const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/books/${user?.email}`)
+           const { data } = await axiosSecure(`/books/${user?.email}`)
            return data
         },
     })
-    console.log(books)
+    // console.log(books)
     // if (isLoading) return <LoadingSpinner></LoadingSpinner>
   return (
     <>
