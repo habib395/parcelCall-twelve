@@ -5,7 +5,7 @@ import useAuth from './../../hooks/useAuth';
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from 'axios'
-import { imageUpload } from "../../api/utils";
+import { imageUpload, saveUser } from "../../api/utils";
 
 const Register = () => {
   const { createUser, updateUserProfile, signInWithGoogle, loading } = useAuth()
@@ -31,11 +31,11 @@ const Register = () => {
       await updateUserProfile(name, photoURL)
       console.log(result)
       // save user info in db if the user is new
-      // await saveUser({ ...result?.user, displayName: name, photoURL })
+      await saveUser({ ...result?.user, displayName: name, photoURL })
       navigate('/')
       toast.success('Signup Successful')
     } catch (err) {
-      console.log(err) 
+      console.log(err)
       toast.error(err?.message)
     }
   }
@@ -43,7 +43,7 @@ const Register = () => {
     const handleGoogleSignIn = async () => {
       try {
         const data = await signInWithGoogle()
-        // await saveUser(data?.user)
+        await saveUser(data?.user)
         navigate('/')
         toast.success('Register Successful')
       } catch (err) {

@@ -6,7 +6,7 @@ import useAuth from "../../../../hooks/useAuth";
 
 const AllUser = () => {
   const { user } = useAuth();
-  console.log(user)
+  // console.log(user)
   const axiosSecure = useAxiosSecure();
   const {
     data: users = [],
@@ -19,7 +19,7 @@ const AllUser = () => {
       return data;
     },
   });
-  console.log(users);
+  // console.log(users);
 
   return (
     <div>

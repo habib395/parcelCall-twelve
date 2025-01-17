@@ -9,12 +9,13 @@ import MenuItem from "./Menu/MenuItem";
 import { FcSettings } from 'react-icons/fc'
 import DeliveryMan from "./Menu/DeliveryMan";
 import AdminMenu from "./Menu/AdminMenu";
+import useRole from "../../../hooks/useRole";
 
 
 const Sidebar = () => {
   const { logOut } = useAuth()
   const [isActive, setActive] = useState(false)
-  // const [role, isLoading] = useRole()
+  const [role, isLoading] = useRole()
 
   const handleToggle = () =>{
     setActive(!isActive)
@@ -70,13 +71,18 @@ const Sidebar = () => {
         {/* Nav Items */}
         <div className='flex flex-col justify-between flex-1 mt-6'>
           <nav>
-            <CustomerMenu></CustomerMenu>
-            <DeliveryMan></DeliveryMan>
-            <AdminMenu></AdminMenu>
+            {
+              role === 'customer' && <CustomerMenu></CustomerMenu>
+            }
+            {
+              role ==='deliveryMan' && <DeliveryMan></DeliveryMan>
+            }
+            {
+              role === 'admin' && <AdminMenu></AdminMenu>
+            }
+            
+            
           </nav>
-          {/* {role === 'customer' && <CustomerMenu />}
-          {role === 'seller' && <SellerMenu />}
-          {role === 'admin' && <AdminMenu />} */}
         </div>
       </div>
 

@@ -1,9 +1,12 @@
 import React from 'react';
 import useAuth from '../../../../hooks/useAuth';
 import SectionTitle from '../../../SectionTitle/SectionTitle';
+import useRole from './../../../../hooks/useRole';
 
 const MyProfile = () => {
     const { user } = useAuth()
+    const [role, isLoading] = useRole()
+    // console.log(role)
     // console.log(user)
     return (
         <div className="w-full p-4 sm:p-16 text-gray-800 rounded-xl bg-gray-50">
@@ -11,7 +14,7 @@ const MyProfile = () => {
             <SectionTitle heading='My Profile'></SectionTitle>
             <div className='flex gap-10 px-4'>
             <img className='rounded-lg' src={user.photoURL} alt="" />
-            <h4 className='text-2xl'>I am {user.displayName}</h4>
+            <h4 className='text-2xl'>I am {user.displayName} a {role}</h4>
             </div>
              <div className='px-5'>
               <label htmlFor="image" className="block text-sm">

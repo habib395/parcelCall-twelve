@@ -31,9 +31,7 @@ const AllBookDataRow = ({ book }) => {
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
           <p className='text-gray-900 space-y-1 whitespace-no-wrap'>
-            <button className="btn btn-sm">Update</button>
-            <button className="btn btn-sm">Cancel</button>
-            <button className="btn btn-sm">Pay</button>
+            <button className="btn btn-sm">Manage</button>
           </p>
         </td>
       </tr>
