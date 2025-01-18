@@ -2,10 +2,12 @@ import React from 'react';
 import useAuth from '../../../../hooks/useAuth';
 import SectionTitle from '../../../SectionTitle/SectionTitle';
 import useRole from './../../../../hooks/useRole';
+import LoadingSpinner from '../../../../pages/Shared/LoadingSpinner';
 
 const MyProfile = () => {
-    const { user } = useAuth()
+    const { user, loading } = useAuth()
     const [role, isLoading] = useRole()
+    if((loading, isLoading)) return <LoadingSpinner></LoadingSpinner>
     // console.log(role)
     // console.log(user)
     return (

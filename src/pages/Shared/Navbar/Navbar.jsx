@@ -1,6 +1,7 @@
 import { IoIosNotifications } from "react-icons/io";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import logo from '../../../../assets/logo.png'
 
 const Navbar = () => {
   const { user, logOut } = useAuth()
@@ -9,7 +10,8 @@ const Navbar = () => {
     <div className="navbar fixed z-10 bg-opacity-30 text-white bg-black">
       <div className="w-11/12 mx-auto navbar">
         <div className="flex-1">
-          <Link to="/" className="btn btn-ghost text-xl">daisyUI</Link>
+          <Link to="/" className="btn btn-ghost text-xl">
+          <img className="w-[20px] h-[20px]" src={logo} alt="" />ParcelCall</Link>
         </div>
         <div className="flex-none text-black">
             <Link to="/" className="text-sm text-white px-2">Home</Link>

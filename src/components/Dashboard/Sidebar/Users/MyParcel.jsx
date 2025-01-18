@@ -4,7 +4,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useQuery } from '@tanstack/react-query'
 import axios from "axios";
 import useAuth from "../../../../hooks/useAuth";
-// import LoadingSpinner from './../../../../pages/Shared/LoadingSpinner';
+import LoadingSpinner from './../../../../pages/Shared/LoadingSpinner';
 
 const MyParcel = () => {
     const axiosSecure = useAxiosSecure()
@@ -23,7 +23,7 @@ const MyParcel = () => {
         },
     })
     // console.log(books)
-    // if (isLoading) return <LoadingSpinner></LoadingSpinner>
+    if (isLoading) return <LoadingSpinner></LoadingSpinner>
   return (
     <>
       <div className="container mx-auto px-4 sm:px-8">

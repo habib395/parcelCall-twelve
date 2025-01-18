@@ -31,9 +31,9 @@ const Register = () => {
       await updateUserProfile(name, photoURL)
       console.log(result)
       // save user info in db if the user is new
-      await saveUser({ ...result?.user, displayName: name, photoURL })
+      await saveUser({ ...result?.user, name, photoURL })
       navigate('/')
-      toast.success('Signup Successful')
+      toast.success('Register Successful')
     } catch (err) {
       console.log(err)
       toast.error(err?.message)

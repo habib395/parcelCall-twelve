@@ -4,15 +4,16 @@ import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 import useAuth from '../../hooks/useAuth';
 import { TbFidgetSpinner } from 'react-icons/tb';
-// import LoadingSpinner from '../Shared/LoadingSpinner';
+import LoadingSpinner from '../Shared/LoadingSpinner';
+import { saveUser } from '../../api/utils';
 
 const Login = () => {
   const { signIn, signInWithGoogle, loading, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
-  // if (loading) return <LoadingSpinner />;
-  // if (user) return <Navigate to={from} replace={true} />;
+  if (loading) return <LoadingSpinner />;
+  if (user) return <Navigate to={from} replace={true} />;
   // form submit handler
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -37,7 +38,7 @@ const Login = () => {
       //User Registration using google
       const data = await signInWithGoogle();
       // save user info in db if the user is new
-      // await saveUser(data?.user);
+      await saveUser(data?.user);
       navigate(from, { replace: true });
       toast.success("Login Successful");
     } catch (err) {
