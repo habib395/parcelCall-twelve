@@ -4,22 +4,27 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../hooks/useAuth";
 
+
 const AllUser = () => {
   const { user } = useAuth();
-  // console.log(user)
   const axiosSecure = useAxiosSecure();
+  
+ 
+  // console.log(user)
   const {
     data: users = [],
     isLoading,
     refetch,
   } = useQuery({
     queryKey: ["users", user?.email],
-    queryFn: async () => {
-      const { data } = await axiosSecure(`/users`);
+    queryFn: async () => { 
+      const { data } = await axiosSecure(`/users/${user?.email}`);
       return data;
     },
   });
-  // console.log(users);
+  console.log(users);
+
+  
 
   return (
     <div>
@@ -68,6 +73,7 @@ const AllUser = () => {
                     refetch={refetch}
                     key={userData?._id}
                     userData={userData}
+                    // updateRole={updateRole}
                   />
                 ))}
               </tbody>
