@@ -15,6 +15,7 @@ const Register = () => {
     event.preventDefault()
     const form = event.target
     const name = form.name.value
+    const phone = form.phone.value
     const email = form.email.value
     const password = form.password.value
     const image = form.image.files[0]
@@ -31,7 +32,7 @@ const Register = () => {
       await updateUserProfile(name, photoURL)
       console.log(result)
       // save user info in db if the user is new
-      await saveUser({ ...result?.user, name, photoURL })
+      await saveUser({ ...result?.user, name, photoURL, phone })
       navigate('/')
       toast.success('Register Successful')
     } catch (err) {
@@ -70,13 +71,27 @@ const Register = () => {
           <div className="space-y-4">
             <div>
               <label htmlFor="email" className="block mb-2 text-sm">
-                Name
+                User Name
               </label>
               <input
                 type="text"
                 name="name"
                 id="name"
                 placeholder="Enter Your Name Here"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-gray-900"
+                data-temp-mail-org="0"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block mb-2 text-sm">
+                Phone Number
+              </label>
+              <input
+                type="number"
+                name="phone"
+                id="phone"
+                required
+                placeholder="Enter Your Email Here"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-gray-900"
                 data-temp-mail-org="0"
               />

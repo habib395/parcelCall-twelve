@@ -19,5 +19,6 @@ export const saveUser = async user =>{
     name: user?.displayName || user?.name,
     email: user?.email,
     image: user?.photoURL,
+    phone: user?.phone || 'N/A'
   })
 }

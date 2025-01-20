@@ -16,6 +16,8 @@ import Statistics from "../components/Dashboard/Sidebar/Admin/Statistics";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import DeliveryManRoute from "./DeliveryManRoute";
+import UpdateParcel from "../components/Form/UpdateParcel";
+import axios from "axios";
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +55,12 @@ export const router = createBrowserRouter([
             <AddBook></AddBook>
           </PrivateRoute>
         ),
+      },
+      {
+        path: 'update/:id',
+        element: <UpdateParcel></UpdateParcel>,
+        loader: ({ params }) =>
+          axios.get(`http://localhost:5000/books/${params.email}/${params.id}`).then((response) =>response.data)
       },
       {
         path: "my-order",

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import useAuth from '../../../../hooks/useAuth';
 import SectionTitle from './../../../SectionTitle/SectionTitle';
@@ -7,6 +7,7 @@ import AllBookDataRow from '../../TableRows/AllBookDataRow';
 
 const AllParcel = () => {
     const axiosSecure = useAxiosSecure()
+    const [recommendationCount, setRecommendationCount] = useState(0)
     // const { user } = useAuth()
 
     const {

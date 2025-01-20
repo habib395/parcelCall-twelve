@@ -1,10 +1,54 @@
-import React from "react";
+import { useLoaderData } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import SectionTitle from "../SectionTitle/SectionTitle";
+import axios from "axios";
 
-const UpdateParcel = ({ handleSubmit }) => {
+const UpdateParcel = () => {
     const { user } = useAuth()
+    const item = useLoaderData()
+  console.log(item)
+  const { _id, name, rename, email, type, delivery, price, date, rePhone, latitude, phone, weight, longitude } = item
+
+  const handleUpdateBooks = (e) =>{
+    e.preventDefault()
+    const form = e.target
+    const name = form.name.value 
+    const email = form.email.value 
+    const phone = form.phone.value
+    const type = form.type.value 
+    const weight = form.weight.value 
+    const rename = form.rename.value
+    const rePhone = form.rePhone.value
+    const delivery = form.delivery.value 
+    const date = form.date.value
+    const latitude = form.latitude.value
+    const longitude = form.longitude.value
+
+    const newBooks = {
+      name, email, phone, type, weight, rename, rePhone, delivery, date, latitude, longitude
+    }
+
+
+    axios.put(`http://localhost:5000/books/${_id}`, newBooks, {
+      headers: {
+        "Content-Type": 'application/json',
+      },
+    })
+    .then((response) =>{
+      const data = response.data
+      console.log(data)
+    })
+    .catch((error) =>{
+      console.error('Error updating books:', error)
+    })
+    event.target.reset()
+
+  }
+
   return (
     <div className="w-full p-4 sm:p-16 text-gray-800 rounded-xl bg-gray-50">
-      <form onSubmit={handleSubmit}>
+      <SectionTitle heading='Update Book'></SectionTitle>
+      <form onSubmit={handleUpdateBooks}>
         {/*row one */}
         <div className="md:flex gap-4">
           {/* name */}
@@ -16,7 +60,7 @@ const UpdateParcel = ({ handleSubmit }) => {
               type="text"
               name="name"
               placeholder="User Name"
-              defaultValue={user && user.displayName}
+              defaultValue={name}
               className="input input-bordered"
               required
             />
@@ -30,7 +74,7 @@ const UpdateParcel = ({ handleSubmit }) => {
               type="email"
               name="email"
               placeholder="User Email"
-              defaultValue={user && user.email}
+              defaultValue={email}
               className="input input-bordered"
               required
             />
@@ -47,7 +91,7 @@ const UpdateParcel = ({ handleSubmit }) => {
               type="number"
               name="phone"
               placeholder="Phone Number"
-              //   defaultValue={user && user.displayName}
+                defaultValue={phone}
               className="input input-bordered"
               required
             />
@@ -61,7 +105,7 @@ const UpdateParcel = ({ handleSubmit }) => {
               type="text"
               name="type"
               placeholder="Parcel Type"
-              //   defaultValue={user && user.email}
+                defaultValue={type}
               className="input input-bordered"
               required
             />
@@ -78,7 +122,7 @@ const UpdateParcel = ({ handleSubmit }) => {
               type="number"
               name="weight"
               placeholder="Parcel Weight"
-              //   defaultValue={user && user.displayName}
+                defaultValue={weight}
               className="input input-bordered"
               required
             />
@@ -93,6 +137,7 @@ const UpdateParcel = ({ handleSubmit }) => {
               name="rename"
               placeholder="Receiver's Name"
               className="input input-bordered"
+                defaultValue={rename}
               required
             />
           </div>
@@ -109,6 +154,7 @@ const UpdateParcel = ({ handleSubmit }) => {
               name="rePhone"
               placeholder="Parcel Weight"
               className="input input-bordered"
+              defaultValue={rePhone}
               required
             />
           </div>
@@ -122,6 +168,7 @@ const UpdateParcel = ({ handleSubmit }) => {
               name="delivery"
               placeholder="Parcel Delivery Address"
               className="input input-bordered"
+              defaultValue={delivery}
               required
             />
           </div>
@@ -138,6 +185,7 @@ const UpdateParcel = ({ handleSubmit }) => {
               name="date"
               placeholder="Requested Delivery Date"
               className="input input-bordered"
+              defaultValue={date}
               required
             />
           </div>
@@ -150,7 +198,7 @@ const UpdateParcel = ({ handleSubmit }) => {
               type="text"
               name="latitude"
               placeholder="Delivery Address Latitude"
-              //   defaultValue={user && user.email}
+                defaultValue={latitude}
               className="input input-bordered"
               required
             />
@@ -167,7 +215,7 @@ const UpdateParcel = ({ handleSubmit }) => {
               type="text"
               name="longitude"
               placeholder="Requested Delivery Date"
-              //   defaultValue={user && user.displayName}
+                defaultValue={longitude}
               className="input input-bordered"
               required
             />
@@ -181,7 +229,7 @@ const UpdateParcel = ({ handleSubmit }) => {
               type="number"
               name="price"
               placeholder="Delivery Address Latitude"
-              //   defaultValue={user && user.email}
+                defaultValue={price}
               className="input input-bordered"
               required
             />

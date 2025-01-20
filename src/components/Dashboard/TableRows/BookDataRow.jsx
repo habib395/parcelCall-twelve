@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 
 
 const BookDataRow = ({book}) => {
-    const { name, type, delivery, price, date, readableDate, status } = book
+    const { _id, name, type, delivery, price, date, readableDate, status } = book
+    // console.log(book)
     return (
         <tr>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -30,7 +32,9 @@ const BookDataRow = ({book}) => {
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
           <p className='text-gray-900 space-y-1 whitespace-no-wrap'>
+            <Link to={`/dashboard/update/${_id}`}>
             <button className="btn btn-sm">Update</button>
+            </Link>
             <button className="btn btn-sm">Cancel</button>
             <button className="btn btn-sm">Pay</button>
           </p>
@@ -42,46 +46,3 @@ const BookDataRow = ({book}) => {
 export default BookDataRow;
 
 
-
-// date
-// : 
-// "2025-01-07"
-// delivery
-// : 
-// "6"
-// email
-// : 
-// "adil@gmail.com"
-// latitude
-// : 
-// "8"
-// longitude
-// : 
-// "9"
-// name
-// : 
-// "Abil"
-// phone
-// : 
-// "1"
-// price
-// : 
-// "10"
-// rePhone
-// : 
-// "5"
-// rename
-// : 
-// "4"
-// type
-// : 
-// "2"
-// users
-// : 
-// {name: 'Abil', image: 'https://i.ibb.co.com/j3pbKDv/avater.png', email: 'adil@gmail.com'}
-// weight
-// : 
-// "3"
-// _id
-// : 
-// "67887e64f22fc221fcacc2c0"

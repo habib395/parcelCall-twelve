@@ -3,7 +3,7 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { toast } from 'react-hot-toast';
 
 const UserDataRow = ( {userData, refetch}) => {
-    const { _id, role, name, email } = userData || {}
+    const { _id, role, name, email, phone } = userData || {}
     const [selected, setSelected] = useState('admin')
     const [select, setSeleted] = useState('deliveryMan')
     // console.log(selected)
@@ -11,6 +11,7 @@ const UserDataRow = ( {userData, refetch}) => {
     // console.log(selected)
 
     const updateAdminRole = async selectedRole =>{
+      if (role === selectedRole) return toast.error('Already Admin')
       try{
         const { data }= await axiosSecure.patch(`/user/role/${email}`,
         { role: selectedRole})
@@ -23,6 +24,7 @@ const UserDataRow = ( {userData, refetch}) => {
       }
     }
     const updateDeliveryManRole = async selectRole =>{
+      if (role === select) return toast.error('Already Delivery Man')
       try{
         const { data }= await axiosSecure.patch(`/user/role/${email}`,
         { role: selectRole})
@@ -42,7 +44,7 @@ const UserDataRow = ( {userData, refetch}) => {
         <p className='text-gray-900 whitespace-no-wrap'>{name}</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'></p>
+        <p className='text-gray-900 whitespace-no-wrap'>{phone}</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'></p>
