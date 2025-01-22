@@ -1,7 +1,6 @@
-import React from 'react';
 
 const AllDeliveryRow = ({ user }) => {
-    const { email } = user
+    const { name, phone } = user
     console.log(user)
     return (
         <tr>
@@ -9,13 +8,13 @@ const AllDeliveryRow = ({ user }) => {
           <div className='flex items-center'>
             <div className='flex-shrink-0'>
               <div className='block relative'>
-              <p>{email}</p>
+              <p>{name}</p>
               </div>
             </div>
           </div>
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-          <p className='text-gray-900 whitespace-no-wrap'></p>
+          <p className='text-gray-900 whitespace-no-wrap'>{phone}</p>
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
           <p className='text-gray-900 whitespace-no-wrap'></p>

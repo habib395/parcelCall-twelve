@@ -73,7 +73,6 @@ const AllUser = () => {
                     refetch={refetch}
                     key={userData?._id}
                     userData={userData}
-                    // updateRole={updateRole}
                   />
                 ))}
               </tbody>

@@ -1,34 +1,56 @@
 import React from "react";
 import BookDataRow from "../../TableRows/BookDataRow";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
-import { useQuery } from '@tanstack/react-query'
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import useAuth from "../../../../hooks/useAuth";
-import LoadingSpinner from './../../../../pages/Shared/LoadingSpinner';
+import LoadingSpinner from "./../../../../pages/Shared/LoadingSpinner";
 
 const MyParcel = () => {
-    const axiosSecure = useAxiosSecure()
-    const { user } = useAuth()
-    // console.log(user)
-     
-    const {
-        data: books = [],
-        isLoading,
-        refetch,
-    } = useQuery({
-        queryKey: ['books'],
-        queryFn: async () => {
-           const { data } = await axiosSecure(`/books/${user?.email}`)
-           return data
-        },
-    })
-    // console.log(books)
-    if (isLoading) return <LoadingSpinner></LoadingSpinner>
+  const axiosSecure = useAxiosSecure();
+  const { user } = useAuth();
+  // console.log(user)
+
+  const {
+    data: books = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["books"],
+    queryFn: async () => {
+      const { data } = await axiosSecure(`/books/${user?.email}`);
+      return data;
+    },
+  });
+  // console.log(books)
+  if (isLoading) return <LoadingSpinner></LoadingSpinner>;
   return (
     <>
       <div className="container mx-auto px-4 sm:px-8">
         <div className="py-8">
           <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+            <div className="flex items-center gap-5 py-3">
+              <h4>Filter bu Status:</h4>
+              <div className="dropdown dropdown-hover">
+                <div tabIndex={0} role="button" className="btn m-1">
+                  All
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+                >
+                  <li>
+                    <a>pending</a>
+                  </li>
+                  <li>
+                    <a>Processing</a>
+                  </li>
+                  <li>
+                    <a>Delivered</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
             <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
               <table className="min-w-full leading-normal">
                 <thead>
@@ -97,4 +119,3 @@ const MyParcel = () => {
 };
 
 export default MyParcel;
-

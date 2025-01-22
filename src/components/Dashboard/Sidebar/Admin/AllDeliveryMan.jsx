@@ -14,7 +14,7 @@ const AllDeliveryMan = () => {
   } = useQuery({
     queryKey: ["users", user?.email],
     queryFn: async () => {
-      const result  = await axiosSecure(`/users/deliveryMan`);
+      const result  = await axiosSecure(`/users/delivery/deliveryMan`);
       return result.data
     },
   });
