@@ -1,9 +1,10 @@
-import ParcelModal from "../../Modal/ParcelModal";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
-const AllBookDataRow = ({ book, refetch, isOpen, closeModal }) => {
-  console.log(book);
-  const { name, phone, readableDate, date, status, type, delivery, price } =
+const AllBookDataRow = ({ book, openModal }) => {
+  const axiosSecure = useAxiosSecure()
+  const { name, phone, readableDate, date, status, price } =
     book;
+   
   return (
     <tr>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -34,18 +35,12 @@ const AllBookDataRow = ({ book, refetch, isOpen, closeModal }) => {
         <p className="text-gray-900 space-y-1 whitespace-no-wrap">
           <button
             className="btn"
-            onClick={() => document.getElementById("my_modal_3").showModal()}
+            onClick={() => openModal(book)}
           >
             Manage
           </button>
         </p>
       </td>
-      <ParcelModal
-        book={book}
-        closeModal={closeModal}
-        isOpen={isOpen}
-        refetch={refetch}
-      ></ParcelModal>
     </tr>
   );
 };

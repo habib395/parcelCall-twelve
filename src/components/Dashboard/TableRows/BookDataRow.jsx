@@ -6,7 +6,9 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 const BookDataRow = ({book, refetch}) => {
   const [bookList, setBookList] = useState([])
   const axiosSecure = useAxiosSecure()
-    const { _id, name, type, delivery, price, date, readableDate, status } = book
+    const { _id, name, type, delivery, price, date, readableDate, status, approximateDeliveryDate, deliveryManId
+    } = book
+    console.log(book)
  
 
     const handleBookDelete = async() =>{
@@ -35,13 +37,13 @@ const BookDataRow = ({book, refetch}) => {
           <p className='text-gray-900 whitespace-no-wrap'>{date}</p>
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-          <p className='text-gray-900 whitespace-no-wrap'></p>
+          <p className='text-gray-900 whitespace-no-wrap'>{approximateDeliveryDate}</p>
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
           <p className='text-gray-900 whitespace-no-wrap'>{readableDate}</p>
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-          <p className='text-gray-900 whitespace-no-wrap'></p>
+          <p className='text-gray-900 whitespace-no-wrap'>{deliveryManId}</p>
         </td>
         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
           <p className='text-gray-900 whitespace-no-wrap'>{status}</p>

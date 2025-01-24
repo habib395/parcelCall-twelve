@@ -4,12 +4,13 @@ import useAuth from "../../../../hooks/useAuth";
 import SectionTitle from "./../../../SectionTitle/SectionTitle";
 import { useQuery } from "@tanstack/react-query";
 import AllBookDataRow from "../../TableRows/AllBookDataRow";
+import ParcelModal from "../../../Modal/ParcelModal";
+import toast from "react-hot-toast";
 
 const AllParcel = () => {
   const axiosSecure = useAxiosSecure();
   let [isOpen, setIsOpen] = useState(false);
-  const [recommendationCount, setRecommendationCount] = useState(0);
-  // const { user } = useAuth()
+  const [selectedBook, setSelectedBook] = useState(null)
 
   const {
     data: books = [],
@@ -23,9 +24,17 @@ const AllParcel = () => {
     },
   });
 
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  const openModal = (book) =>{
+    setSelectedBook(book) 
+    setIsOpen(true)
+  }
+
+  const closeModal = () =>{
+    setIsOpen(false)
+    setSelectedBook(null)
+  }
+
+ 
 
   return (
     <>
@@ -78,9 +87,7 @@ const AllParcel = () => {
                       scope="col"
                       className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
                     >
-                      <button onClick={() =>setIsOpen(true)}>
-                      Manage
-                      </button>
+                      <button onClick={() => setIsOpen(true)}>Manage</button>
                     </th>
                   </tr>
                 </thead>
@@ -90,12 +97,20 @@ const AllParcel = () => {
                       key={book?._id}
                       book={book}
                       refetch={refetch}
-                      closeModal={closeModal}
-                      setIsOpen={setIsOpen}
+                      openModal={openModal}
                     />
                   ))}
                 </tbody>
               </table>
+              {
+                isOpen && (
+                  <ParcelModal
+                    book={selectedBook}
+                    closeModal={closeModal}
+                    refetch={refetch}
+                  />
+                )
+              }
             </div>
           </div>
         </div>
