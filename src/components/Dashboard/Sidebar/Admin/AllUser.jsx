@@ -80,7 +80,7 @@ const AllUser = () => {
           </div>
         </div>
       </div>
-      <UserDataRow></UserDataRow>
+      {/* <UserDataRow></UserDataRow> */}
     </div>
   );
 };

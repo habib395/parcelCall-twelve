@@ -9,7 +9,8 @@ const MyDelivery = () => {
   const { user } = useAuth()
   const axiosSecure = useAxiosSecure();
   const [deliveryManId, setDeliveryManId] = useState(null)
-  console.log(deliveryManId)
+  const [approximateDeliveryDate, setApproximateDeliveryDate] = useState("")
+  // console.log(deliveryManId)
 
   useEffect(() =>{
     const fetchUserId = async() =>{
@@ -28,7 +29,7 @@ const MyDelivery = () => {
 
   
 
-  const { data: deliveries = [], refetch } = useQuery({
+  const { data: deliveries = [], refetch, } = useQuery({
     queryKey: ["myDeliveries", deliveryManId],
     queryFn: async () => {
       if(!deliveryManId) return []
@@ -43,29 +44,34 @@ const MyDelivery = () => {
 
   const handleCancel = async (parcelId) => {
     if (window.confirm("Are you sure you want to cancel this parcel?")) {
-      try {
-        await axiosSecure.patch(`/parcel/status/${parcelId}`, {
+      try{
+        const { data } = await axiosSecure.patch(`book/status/${parcelId}`,{
           status: "Cancelled",
-        });
-        toast.success("Parcel has been cancelled!");
-        refetch();
-      } catch (error) {
-        toast.error("Failed to cancel the parcel");
+          deliveryManId,
+          approximateDeliveryDate,
+        })
+        toast.success("Parcel marked as Cancelled!")
+        refetch()
+      }catch(err){
+        console.error(err)
+        toast.error("Failed to update parcel status.")
       }
     }
   };
 
   const handleDeliver = async (parcelId) => {
     if (window.confirm("Confirm that the parcel has been delivered.")) {
-      try {
-        await axiosSecure.patch(`/parcels/status/${parcelId}`, {
+      try{
+        const { data } = await axiosSecure.patch(`book/status/${parcelId}`,{
           status: "Delivered",
-        });
-        toast.success("Parcel marked as delivered!");
-        refetch();
-      } catch (error) {
-        console.error(error);
-        toast.error("Failed to update parcel status.");
+          deliveryManId,
+          approximateDeliveryDate,
+        })
+        toast.success("Parcel marked as delivered!")
+        refetch()
+      }catch(err){
+        console.error(err)
+        toast.error("Failed to update parcel status.")
       }
     }
   };
