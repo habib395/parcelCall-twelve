@@ -1,7 +1,7 @@
 import SectionTitle from "./../SectionTitle/SectionTitle";
 import useAuth from "../../hooks/useAuth";
 
-const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
+const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading, handleWeightChange, price }) => {
     const { user } = useAuth()
     // console.log(user) gap-2
   return (
@@ -21,6 +21,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
               placeholder="User Name"
               defaultValue={user && user.displayName}
               className="input input-bordered"
+              readOnly
               required
             />
           </div>
@@ -35,6 +36,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
               placeholder="User Email"
               defaultValue={user && user.email}
               className="input input-bordered"
+              readOnly
               required
             />
           </div>
@@ -49,7 +51,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
             <input
               type="number"
               name="phone"
-              placeholder="Phone Number"
+              placeholder="Enter Phone Number"
             //   defaultValue={user && user.displayName}
               className="input input-bordered"
               required
@@ -63,7 +65,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
             <input
               type="text"
               name="type"
-              placeholder="Parcel Type"
+              placeholder="Enter Parcel Type"
             //   defaultValue={user && user.email}
               className="input input-bordered"
               required
@@ -80,7 +82,8 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
             <input
               type="number"
               name="weight"
-              placeholder="Parcel Weight"
+              onChange={handleWeightChange}
+              placeholder="Enter Parcel Weight"
             //   defaultValue={user && user.displayName}
               className="input input-bordered"
               required
@@ -94,7 +97,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
             <input
               type="text"
               name="rename"
-              placeholder="Receiver's Name"
+              placeholder="Enter Receiver's Name"
               className="input input-bordered"
               required
             />
@@ -110,7 +113,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
             <input
               type="number"
               name="rePhone"
-              placeholder="Parcel Weight"
+              placeholder="Enter Receiver's phone"
               className="input input-bordered"
               required
             />
@@ -123,7 +126,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
             <input
               type="text"
               name="delivery"
-              placeholder="Parcel Delivery Address"
+              placeholder="Enter Delivery Address"
               className="input input-bordered"
               required
             />
@@ -150,9 +153,10 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
               <span className="label-text">Delivery Address Latitude</span>
             </label>
             <input
-              type="text"
+              type="number"
+              step='0.000001'
               name="latitude"
-              placeholder="Delivery Address Latitude"
+              placeholder="Enter Latitude"
             //   defaultValue={user && user.email}
               className="input input-bordered"
               required
@@ -164,12 +168,13 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
         {/* longitude */}
           <div className="form-control md:w-1/2">
             <label className="label">
-              <span className="label-text">Delivery Addres Longitude</span>
+              <span className="label-text">Delivery Address Longitude</span>
             </label>
             <input
-              type="text"
+              type="number"
+              step='0.000001'
               name="longitude"
-              placeholder="Requested Delivery Date"
+              placeholder="Enter longitude"
             //   defaultValue={user && user.displayName}
               className="input input-bordered"
               required
@@ -183,6 +188,8 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
             <input
               type="number"
               name="price"
+              value={price}
+              readOnly
               placeholder="Delivery Address Latitude"
             //   defaultValue={user && user.email}
               className="input input-bordered"
@@ -190,11 +197,18 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading }) => {
             />
           </div>
         </div>
-        <input
+        <button
           type="submit"
           value="submit"
-          className="btn btn-block bg-blue-400 my-3"
-        />
+          className={`w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded ${
+            loading ? 'opacity-50 py-2 cursor-not-allowed' : ''
+          }`}
+          disabled={loading}
+        >
+          {
+            loading ? 'Booking' : 'Book Parcel'
+          }
+        </button>
       </form>
     </div>
   );
