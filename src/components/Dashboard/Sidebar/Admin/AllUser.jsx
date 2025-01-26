@@ -1,13 +1,16 @@
-import React from "react";
-import UserDataRow from "../../TableRows/UserDataRow";
+;import UserDataRow from "../../TableRows/UserDataRow";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../hooks/useAuth";
+import { useState } from "react";
 
 
 const AllUser = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const usersPerPage = 5
   
   const {
     data: users = [],
@@ -20,7 +23,25 @@ const AllUser = () => {
       return data;
     },
   });
-  console.log(users)
+  // console.log(users)
+  
+  const indexOfLastUser = currentPage * usersPerPage;
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+
+  const totalPages = Math.ceil(users.length / usersPerPage)
+
+  const handleNextPage = () =>{
+    if(currentPage < totalPages) setCurrentPage((prev) => prev + 1)
+  }
+
+  const handlePrevPage = () =>{
+    if(currentPage > 1) setCurrentPage((prev) => prev - 1)
+  }
+
+  if(isLoading){
+    return <div>Loading...</div>
+  }
 
 
   return (
@@ -65,7 +86,7 @@ const AllUser = () => {
                 </tr>
               </thead>
               <tbody>
-                {users.map((userData) => (
+                {currentUsers.map((userData) => (
                   <UserDataRow
                     refetch={refetch}
                     key={userData?._id}
@@ -75,6 +96,20 @@ const AllUser = () => {
               </tbody>
             </table>
           </div>
+        </div>
+
+        <div className="flex justify-between items-center mt-4">
+          <button className={`btn ${currentPage === 1 ? "btn-disabled" : ""}`}
+          onClick={handlePrevPage}>
+            Previous
+          </button>
+          <p>
+            page {currentPage} of {totalPages}
+          </p>
+          <button className={`btn ${currentPage === totalPages ? "btn-disabled" : ""}`}
+          onClick={handleNextPage}>
+            Next
+          </button>
         </div>
       </div>
     </div>

@@ -36,6 +36,7 @@ const AllBookDataRow = ({ book, openModal }) => {
           <button
             className="btn"
             onClick={() => openModal(book)}
+            disabled={status === "Delivered"} 
           >
             Manage
           </button>

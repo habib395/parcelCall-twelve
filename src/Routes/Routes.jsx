@@ -91,6 +91,16 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "statistic",
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <Statistics></Statistics>
+            </AdminRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "all-parcel",
         element: (
           <PrivateRoute>
@@ -116,16 +126,6 @@ export const router = createBrowserRouter([
           <PrivateRoute>
             <AdminRoute>
               <AllDeliveryMan></AllDeliveryMan>
-            </AdminRoute>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "statistic",
-        element: (
-          <PrivateRoute>
-            <AdminRoute>
-              <Statistics></Statistics>
             </AdminRoute>
           </PrivateRoute>
         ),

@@ -8,20 +8,20 @@ const AllDeliveryMan = () => {
 
   const axiosSecure = useAxiosSecure();
   const {
-    data: users = [],
+    data: deliveryMen = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["users", user?.email],
+    queryKey: ["deliveryMen", user?.email],
     queryFn: async () => {
       const result  = await axiosSecure(`/users/delivery/deliveryMan`);
       return result.data
     },
   });
-  console.log(users)
+  // console.log(users)
   return (
     <div className="container mx-auto px-4 sm:px-8">
-      <SectionTitle Subheading="All Parcels"></SectionTitle>
+      <SectionTitle Subheading="All Delivery Man"></SectionTitle>
       <div className="py-4">
         <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
           <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -44,7 +44,7 @@ const AllDeliveryMan = () => {
                     scope="col"
                     className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
                   >
-                    Number of Parcels Delivery
+                    Number of Parcels Delivered
                   </th>
                   <th
                     scope="col"
@@ -55,7 +55,7 @@ const AllDeliveryMan = () => {
                 </tr>
               </thead>
               <tbody>
-                {users?.map((user) => (
+                {deliveryMen?.map((user) => (
                   <AllDeliveryRow
                     key={user?._id}
                     user={user}

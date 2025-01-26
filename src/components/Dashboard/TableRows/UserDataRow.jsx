@@ -13,6 +13,8 @@ const UserDataRow = ( {userData, refetch}) => {
         return
       }
       try{
+        console.log("email",email)
+        
         const { data } = await axiosSecure.patch(`/user/role/${email}`, { role: newRole})
         toast.success(`${newRole} role update successfully`)
         refetch()

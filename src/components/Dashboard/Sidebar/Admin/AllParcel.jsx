@@ -24,8 +24,8 @@ const AllParcel = () => {
     queryFn: async () => {
       const { data } = await axiosSecure(`/parcels`, {
         params: {
-          fromDate: fromDate ? new Date(fromDate).toISOString() : undefined,
-          toDate: toDate ? new Date(toDate).toISOString() : undefined,
+          fromDate: fromDate ? new Date(fromDate).getTime() : undefined,
+          toDate: toDate ? new Date(toDate).getTime() : undefined,
         },
       });
       return data;
@@ -55,7 +55,7 @@ const AllParcel = () => {
           <div className="flex gap-4">
             <input type="date" className="px-4 py-2 border rounded-md"
             value={fromDate}
-            onChange={(e) => setFormDate(e.target.value)}
+            onChange={(e) => setFormDate(e.target.value) }
             />
             <input type="date" className="px-4 py-2 border rounded-md"
             value={toDate}

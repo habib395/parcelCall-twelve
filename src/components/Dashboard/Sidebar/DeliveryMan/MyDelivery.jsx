@@ -9,7 +9,7 @@ const MyDelivery = () => {
   const { user } = useAuth()
   const axiosSecure = useAxiosSecure();
   const [deliveryManId, setDeliveryManId] = useState(null)
-  const [approximateDeliveryDate, setApproximateDeliveryDate] = useState("")
+  // const [approximateDeliveryDate, setApproximateDeliveryDate] = useState("")
   // console.log(deliveryManId)
 
   useEffect(() =>{
@@ -36,21 +36,21 @@ const MyDelivery = () => {
       const response = await axiosSecure.get(
         `parcel/deliveryMan/${deliveryManId}`
       );
-      return response.data.data;
+      return response.data.data || []
     },
     enabled: !!deliveryManId,
   });
-  console.log(deliveries)
+  // console.log(deliveries)
 
   const handleCancel = async (parcelId) => {
     if (window.confirm("Are you sure you want to cancel this parcel?")) {
       try{
-        const { data } = await axiosSecure.patch(`book/status/${parcelId}`,{
+        const response = await axiosSecure.patch(`book/status/${parcelId}`,{
           status: "Cancelled",
           deliveryManId,
-          approximateDeliveryDate,
+          // approximateDeliveryDate,
         })
-        toast.success("Parcel marked as Cancelled!")
+        toast.success(response.data.message || "Parcel marked as Cancelled!")
         refetch()
       }catch(err){
         console.error(err)
@@ -62,12 +62,12 @@ const MyDelivery = () => {
   const handleDeliver = async (parcelId) => {
     if (window.confirm("Confirm that the parcel has been delivered.")) {
       try{
-        const { data } = await axiosSecure.patch(`book/status/${parcelId}`,{
+        const response = await axiosSecure.patch(`book/status/${parcelId}`,{
           status: "Delivered",
           deliveryManId,
-          approximateDeliveryDate,
+          // approximateDeliveryDate,
         })
-        toast.success("Parcel marked as delivered!")
+        toast.success(response.data.message || "Parcel marked as delivered!")
         refetch()
       }catch(err){
         console.error(err)
@@ -162,12 +162,15 @@ const MyDelivery = () => {
                       <button
                         className="btn btn-sm btn-warning mr-2"
                         onClick={() => handleCancel(delivery._id)}
+                        disabled={delivery.status === "Delivered" || delivery.status === "Cancelled"} 
                       >
                         Cancel
                       </button>
                       <button
                         className="btn btn-sm btn-success"
                         onClick={() => handleDeliver(delivery._id)}
+                        disabled={delivery.status === "Delivered" || delivery.status === "Cancelled"} 
+                        
                       >
                         Deliver
                       </button>
