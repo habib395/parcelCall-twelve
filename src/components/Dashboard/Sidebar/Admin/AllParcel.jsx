@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useAuth from "../../../../hooks/useAuth";
 import SectionTitle from "./../../../SectionTitle/SectionTitle";
@@ -10,36 +10,65 @@ import toast from "react-hot-toast";
 const AllParcel = () => {
   const axiosSecure = useAxiosSecure();
   let [isOpen, setIsOpen] = useState(false);
-  const [selectedBook, setSelectedBook] = useState(null)
+  const [selectedBook, setSelectedBook] = useState(null);
+
+  const [fromDate, setFormDate] = useState("");
+  const [toDate, setToDate] = useState("");
 
   const {
     data: books = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["books"],
+    queryKey: ["books", fromDate, toDate],
     queryFn: async () => {
-      const { data } = await axiosSecure(`/books`);
+      const { data } = await axiosSecure(`/parcels`, {
+        params: {
+          fromDate: fromDate ? new Date(fromDate).toISOString() : undefined,
+          toDate: toDate ? new Date(toDate).toISOString() : undefined,
+        },
+      });
       return data;
     },
   });
 
-  const openModal = (book) =>{
-    setSelectedBook(book) 
-    setIsOpen(true)
-  }
+  const openModal = (book) => {
+    setSelectedBook(book);
+    setIsOpen(true);
+  };
 
-  const closeModal = () =>{
-    setIsOpen(false)
-    setSelectedBook(null)
-  }
+  const closeModal = () => {
+    setIsOpen(false);
+    setSelectedBook(null);
+  };
 
- 
+  const handleSearch = () => {
+    refetch();
+  };
 
   return (
     <>
       <div className="container mx-auto px-4 sm:px-8">
         <SectionTitle Subheading="All Parcels"></SectionTitle>
+        {/* search section */}
+        <div className="py-4">
+          <div className="flex gap-4">
+            <input type="date" className="px-4 py-2 border rounded-md"
+            value={fromDate}
+            onChange={(e) => setFormDate(e.target.value)}
+            />
+            <input type="date" className="px-4 py-2 border rounded-md"
+            value={toDate}
+            onChange={(e) => setToDate(e.target.value)}
+            />
+            <button className="px-4 py-2 bg-blue-500 text-white rounded-md"
+            onClick={handleSearch}
+            >
+              Search
+            </button>
+          </div>
+        </div>
+        {/* parcel table */}
         <div className="py-4">
           <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
             <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -102,15 +131,13 @@ const AllParcel = () => {
                   ))}
                 </tbody>
               </table>
-              {
-                isOpen && (
-                  <ParcelModal
-                    book={selectedBook}
-                    closeModal={closeModal}
-                    refetch={refetch}
-                  />
-                )
-              }
+              {isOpen && (
+                <ParcelModal
+                  book={selectedBook}
+                  closeModal={closeModal}
+                  refetch={refetch}
+                />
+              )}
             </div>
           </div>
         </div>

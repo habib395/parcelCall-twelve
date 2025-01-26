@@ -9,8 +9,6 @@ const AllUser = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   
- 
-  // console.log(user)
   const {
     data: users = [],
     isLoading,
@@ -22,9 +20,8 @@ const AllUser = () => {
       return data;
     },
   });
-  console.log(users);
+  console.log(users)
 
-  
 
   return (
     <div>
@@ -80,7 +77,6 @@ const AllUser = () => {
           </div>
         </div>
       </div>
-      {/* <UserDataRow></UserDataRow> */}
     </div>
   );
 };

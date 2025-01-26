@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
@@ -9,7 +8,6 @@ const ParcelModal = ({ book, closeModal, refetch}) => {
   const [deliveryManId, setDeliveryManId] = useState("")
   const [approximateDeliveryDate, setApproximateDeliveryDate] = useState("")
   
-
   const {
     data: deliveryMen = [],
   } = useQuery({
@@ -72,6 +70,9 @@ const ParcelModal = ({ book, closeModal, refetch}) => {
             <input className="w-full px-4 py-3 border-lime-300 focus:outline-lime-500 rounded-md bg-white" type="date" onChange={(e) => setApproximateDeliveryDate(e.target.value)} />
             <div className="flex justify-center items-center gap-2"> 
             <button onClick={handleAssign} className="btn btn-sm bg-blue-400">Assign</button>
+            {/* <button className="btn btn-sm bg-red-400">Cancel</button> */}
+            {/* <form method="dialog"> */}
+            {/* if there is a button in form, it will close the modal */}
             <button onClick={closeModal} className="btn btn-sm">
               Cancel
             </button>
