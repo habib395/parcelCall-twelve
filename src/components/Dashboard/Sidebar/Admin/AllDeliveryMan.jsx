@@ -1,24 +1,30 @@
 import SectionTitle from "./../../../SectionTitle/SectionTitle";
-import useAuth from "./../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
 import AllDeliveryRow from "../../TableRows/AllDeliveryRow";
+import { useEffect, useState } from "react";
+import LoadingSpinner from "../../../../pages/Shared/LoadingSpinner";
 const AllDeliveryMan = () => {
-  const { user } = useAuth();
-
   const axiosSecure = useAxiosSecure();
-  const {
-    data: deliveryMen = [],
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: ["deliveryMen", user?.email],
-    queryFn: async () => {
-      const result  = await axiosSecure(`/users/delivery/deliveryMan`);
-      return result.data
-    },
-  });
-  // console.log(users)
+  const [loading, setLoading] = useState(true)
+  const [deliveryMen, setDeliveryMen] = useState(true)
+
+  useEffect(() =>{
+    const fetchDeliveryMen = async() =>{
+    try{
+      const result = await axiosSecure(`/users/delivery/deliveryMan`)
+      setDeliveryMen(result.data)
+      setLoading(false)
+    }catch(error){
+      console.error("Failed to fetch delivery men", error)
+      setLoading(false)
+    }
+    }
+    fetchDeliveryMen()
+  }, [axiosSecure])
+  // console.log(deliveryMen)
+
+  if(loading) return <LoadingSpinner></LoadingSpinner>
+
   return (
     <div className="container mx-auto px-4 sm:px-8">
       <SectionTitle Subheading="All Delivery Man"></SectionTitle>
@@ -59,7 +65,6 @@ const AllDeliveryMan = () => {
                   <AllDeliveryRow
                     key={user?._id}
                     user={user}
-                    refetch={refetch}
                   />
                 ))}
               </tbody>

@@ -1,70 +1,59 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import LoadingSpinner from "../../Shared/LoadingSpinner";
 
 const TopDelivery = () => {
+  const axiosSecure = useAxiosSecure();
+  const [loading, setLoading] = useState(true);
+  const [topDeliveryMen, setTopDeliveryMen] = useState([]);
+
+  useEffect(() => {
+    const fetchTopDeliveryMen = async () => {
+      try {
+        const result = await axiosSecure("/topDeliveryMen");
+        setTopDeliveryMen(result.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Failed to fetch top delivery men", error);
+        setLoading(false);
+      }
+    };
+    fetchTopDeliveryMen();
+  }, [axiosSecure]);
+  // console.log(topDeliveryMen)
+
+  if (loading) return <LoadingSpinner />;
   return (
     <div>
       <SectionTitle heading={"Top Delivery Man"}></SectionTitle>
+      <div className="flex justify-center items-center gap-4 w-10/12 mx-auto py-5">
       {/* Top three delivery Man are here */}
-     <div className="flex justify-center items-center gap-4 w-10/12 mx-auto py-5">
-     <div className="card bg-base-100  shadow-xl">
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">
-            Shoes!
-            <div className="badge badge-secondary">NEW</div>
-          </h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions justify-end">
-            <div className="badge badge-outline">Fashion</div>
-            <div className="badge badge-outline">Products</div>
+      {
+        topDeliveryMen.map((man) =>(
+          <div key={man._id} className="card bg-base-100 shadow-xl">
+          <figure>
+            <img
+              src={man.image || "https://via.placeholder.com/150"}
+              alt={man.name}
+              className="w-full h-48 object-cover"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{man.name || "N/A"}</h2>
+            <p>
+              <strong>Parcels Delivered:</strong> {man.parcelsDelivered || 0}
+            </p>
+            <p>
+              <strong>Average Rating:</strong>{" "}
+              {man.averageReview === 0 ? "No reviews" : man.averageReview}
+            </p>
           </div>
         </div>
+        ))
+      }
+        
       </div>
-     <div className="card bg-base-100 shadow-xl">
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">
-            Shoes!
-            <div className="badge badge-secondary">NEW</div>
-          </h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions justify-end">
-            <div className="badge badge-outline">Fashion</div>
-            <div className="badge badge-outline">Products</div>
-          </div>
-        </div>
-      </div>
-     <div className="card bg-base-100  shadow-xl">
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">
-            Shoes!
-            <div className="badge badge-secondary">NEW</div>
-          </h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions justify-end">
-            <div className="badge badge-outline">Fashion</div>
-            <div className="badge badge-outline">Products</div>
-          </div>
-        </div>
-      </div>
-     </div>
     </div>
   );
 };

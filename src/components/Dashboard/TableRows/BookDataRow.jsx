@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import ReviewModal from "../../Modal/ReviewModal";
+import { useState } from "react";
 
 const BookDataRow = ({ book, refetch }) => {
   const axiosSecure = useAxiosSecure();
-  // const [bookList, setBookList] = useState([])
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isReviewCompleted, setIsReviewCompleted] = useState(false)
   const {
     _id,
     type,
@@ -32,12 +35,20 @@ const BookDataRow = ({ book, refetch }) => {
         refetch();
       } catch (err) {
         console.log(err);
-        toast.error(err.response.data);
+        toast.error(err.response?.data);
       }
     }
   };
 
+  const handleReviewSuccess = () =>{
+    setIsReviewCompleted(true)
+    setIsModalOpen(false)
+    toast.success("Review submitted successfully.")
+    refetch()
+  }
+
   return (
+  <>
     <tr>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <div className="flex items-center">
@@ -67,6 +78,7 @@ const BookDataRow = ({ book, refetch }) => {
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <p className="text-gray-900 space-y-1 whitespace-no-wrap">
+
           {status === "pending" && (
             <Link to={`/dashboard/update/${_id}`}>
               <button className="btn btn-sm" title="Update booking">
@@ -84,12 +96,26 @@ const BookDataRow = ({ book, refetch }) => {
             </button>
           )}
           {status === "Delivered" && (
-            <button className="btn btn-sm">Review</button>
+            <button
+            onClick={() => setIsModalOpen(true)}
+            className="btn btn-sm"
+            disabled={isReviewCompleted}
+            >{isReviewCompleted ? "Reviewed" : "Review"}</button>
           )}
           <button className="btn btn-sm">Pay</button>
         </p>
       </td>
     </tr>
+    {isModalOpen &&(
+        <ReviewModal
+        deliveryManId={deliveryManId}
+        onClose={() => setIsModalOpen(false)}
+        onSuccess={handleReviewSuccess}
+        refetch={refetch}
+        ></ReviewModal>
+      )
+    }
+    </>
   );
 };
 
