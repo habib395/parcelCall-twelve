@@ -18,6 +18,8 @@ import AdminRoute from "./AdminRoute";
 import DeliveryManRoute from "./DeliveryManRoute";
 import UpdateParcel from "../components/Form/UpdateParcel";
 import axios from "axios";
+import CheckoutPage from "../pages/CheckoutPage";
+import PaymentSuccess from "../pages/PaymentSuccess";
 
 export const router = createBrowserRouter([
   {
@@ -69,6 +71,22 @@ export const router = createBrowserRouter([
             <MyParcel></MyParcel>
           </PrivateRoute>
         ),
+      },
+      {
+        path: 'checkout/:id',
+        element: (
+          <PrivateRoute>
+            <CheckoutPage></CheckoutPage>
+          </PrivateRoute>
+        )
+      },
+      {
+        path:'payment-success',
+        element:(
+          <PrivateRoute>
+          <PaymentSuccess></PaymentSuccess>
+          </PrivateRoute>
+        )
       },
       {
         path: "my-delivery",

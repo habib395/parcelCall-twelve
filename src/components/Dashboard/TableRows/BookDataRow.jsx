@@ -102,7 +102,9 @@ const BookDataRow = ({ book, refetch }) => {
             disabled={isReviewCompleted}
             >{isReviewCompleted ? "Reviewed" : "Review"}</button>
           )}
-          <button className="btn btn-sm">Pay</button>
+          <button
+          onClick={() => window.location.href = `checkout/${_id}`}
+           className="btn btn-sm">Pay</button>
         </p>
       </td>
     </tr>
