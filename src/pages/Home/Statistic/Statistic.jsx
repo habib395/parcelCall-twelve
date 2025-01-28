@@ -17,9 +17,9 @@ const Statistic = () => {
 
   if (isLoading) return <LoadingSpinner></LoadingSpinner>
   return (
-    <div className="py-5">
+    <div className="py-5 w-11/12 mx-auto">
       <SectionTitle heading={'Statistic'}></SectionTitle>
-     <div className="flex">
+     <div className="sm:flex">
      <div className="bg-base-200 shadow-xl p-3 lg:p-10 m-5 rounded-lg md:w-full">
         <h2 className="text-xl lg:text-2xl font-bold text-center pb-2">
           Total Parcels Booked

@@ -4,6 +4,8 @@ const AllBookDataRow = ({ book, openModal }) => {
   const axiosSecure = useAxiosSecure()
   const { name, phone, readableDate, date, status, price } =
     book;
+
+    const dateId = new Date(date).toDateString()
    
   return (
     <tr>
@@ -23,7 +25,7 @@ const AllBookDataRow = ({ book, openModal }) => {
         <p className="text-gray-900 whitespace-no-wrap">{readableDate}</p>
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-        <p className="text-gray-900 whitespace-no-wrap">{date}</p>
+        <p className="text-gray-900 whitespace-no-wrap">{dateId}</p>
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <p className="text-gray-900 whitespace-no-wrap">{price}</p>

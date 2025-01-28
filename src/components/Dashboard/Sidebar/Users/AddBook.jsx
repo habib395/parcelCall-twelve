@@ -29,7 +29,8 @@ const AddBook = () => {
         const rename = form.rename.value 
         const rePhone = form.rePhone.value 
         const delivery = form.delivery.value 
-        const date = form.date.value
+        const wantedDate = form.date.value
+        const date = new Date(wantedDate).getTime()    
         const latitude = parseFloat(form.latitude.value )
         const longitude = parseFloat(form.longitude.value)
 
@@ -50,15 +51,7 @@ const AddBook = () => {
             currentDate
           )
 
-        //user info
-        // const users = {
-        //     name: user?.displayName ,
-        //     image: user?.photoURL ,
-        //     email: user?.email,
-        // }
-
-
-        //booking data 
+        
         const bookData = {
             name,
             email,
@@ -74,13 +67,8 @@ const AddBook = () => {
             price,
             readableDate,
             status: 'pending',
-            // createdAt: new Date().toString()
         }
         
-        // console.table(bookData)
-
-
-        // save bookData in db
         try{
             await axiosSecure.post('/books', bookData)
             toast.success('Data Added Successfully!')
@@ -105,7 +93,7 @@ const AddBook = () => {
     }
     return (
         <div>
-            <AddParcel
+            <AddParcel l
             handleSubmit={handleSubmit}
             price={price}
             uploadImage={uploadImage}

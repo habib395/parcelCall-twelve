@@ -8,6 +8,7 @@ const BookDataRow = ({ book, refetch }) => {
   const axiosSecure = useAxiosSecure();
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isReviewCompleted, setIsReviewCompleted] = useState(false)
+
   const {
     _id,
     type,
@@ -17,6 +18,8 @@ const BookDataRow = ({ book, refetch }) => {
     approximateDeliveryDate,
     deliveryManId,
   } = book;
+
+  const dateId = new Date(date).toDateString()
   // console.log(book)
 
   const handleCancelBooking = async () => {
@@ -43,7 +46,6 @@ const BookDataRow = ({ book, refetch }) => {
   const handleReviewSuccess = () =>{
     setIsReviewCompleted(true)
     setIsModalOpen(false)
-    toast.success("Review submitted successfully.")
     refetch()
   }
 
@@ -60,7 +62,7 @@ const BookDataRow = ({ book, refetch }) => {
         </div>
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-        <p className="text-gray-900 whitespace-no-wrap">{date}</p>
+        <p className="text-gray-900 whitespace-no-wrap">{dateId}</p>
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <p className="text-gray-900 whitespace-no-wrap">
@@ -95,16 +97,17 @@ const BookDataRow = ({ book, refetch }) => {
               Cancel
             </button>
           )}
-          {status === "Delivered" && (
+          {status === "Delivered" &&  (
             <button
             onClick={() => setIsModalOpen(true)}
             className="btn btn-sm"
             disabled={isReviewCompleted}
             >{isReviewCompleted ? "Reviewed" : "Review"}</button>
           )}
-          <button
+
+          {status === "pending" &&  <button
           onClick={() => window.location.href = `checkout/${_id}`}
-           className="btn btn-sm">Pay</button>
+           className="btn btn-sm">Pay</button>}
         </p>
       </td>
     </tr>

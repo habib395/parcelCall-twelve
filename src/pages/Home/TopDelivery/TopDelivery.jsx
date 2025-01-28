@@ -27,11 +27,11 @@ const TopDelivery = () => {
   return (
     <div>
       <SectionTitle heading={"Top Delivery Man"}></SectionTitle>
-      <div className="flex justify-center items-center gap-4 w-10/12 mx-auto py-5">
+      <div className="sm:flex justify-evenly items-center gap-2 py-5">
       {/* Top three delivery Man are here */}
       {
         topDeliveryMen.map((man) =>(
-          <div key={man._id} className="card bg-base-100 shadow-xl">
+          <div key={man._id} className="card bg-base-100 shadow-lg">
           <figure>
             <img
               src={man.image || "https://via.placeholder.com/150"}
@@ -39,8 +39,8 @@ const TopDelivery = () => {
               className="w-full h-48 object-cover"
             />
           </figure>
-          <div className="card-body">
-            <h2 className="card-title">{man.name || "N/A"}</h2>
+          <div className="card-body text-center">
+            <h2 className="text-2xl font-bold">{man.name || "N/A"}</h2>
             <p>
               <strong>Parcels Delivered:</strong> {man.parcelsDelivered || 0}
             </p>

@@ -5,17 +5,17 @@ import logo from '../../../../assets/logo.png'
 
 const Navbar = () => {
   const { user, logOut } = useAuth()
-  console.log(user)
+  // console.log(user)
   return (
-    <div className="navbar fixed z-10 bg-opacity-30 text-white bg-black">
+    <div className="navbar sm:fixed z-10 bg-opacity-30 text-white bg-black">
       <div className="w-11/12 mx-auto navbar">
         <div className="flex-1">
           <Link to="/" className="btn btn-ghost text-xl">
           <img className="w-[20px] h-[20px]" src={logo} alt="" />ParcelCall</Link>
         </div>
         <div className="flex-none text-black">
-            <Link to="/" className="text-sm text-white px-2">Home</Link>
-          <div className="text-white text-xl">
+            <Link to="/" className="text-sm text-white px-2 mr-2">Home</Link>
+          <div className="text-white text-xl mr-2">
             <IoIosNotifications />
           </div>
           {
@@ -50,7 +50,7 @@ const Navbar = () => {
                 <li>
                 <button
                   onClick={logOut}
-                  className="btn btn-sm bg-blue-400"
+                  className="btn btn-sm"
                 >
                   Logout
                 </button>

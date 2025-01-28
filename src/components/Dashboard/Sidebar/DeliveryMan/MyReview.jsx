@@ -4,17 +4,16 @@ import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const MyReview = () => {
-  const { user } = useAuth(); 
-  const axiosSecure = useAxiosSecure(); 
-  const [reviews, setReviews] = useState([]); 
-  const [isLoading, setIsLoading] = useState(true); 
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchReviews = async () => {
       try {
         const userResponse = await axiosSecure.get(`/user/id/${user?.email}`);
         const deliveryMan = userResponse?.data;
-        
 
         if (deliveryMan) {
           const reviewResponse = await axiosSecure.get(
@@ -31,9 +30,8 @@ const MyReview = () => {
         setIsLoading(false);
       }
     };
-
     if (user?.email) {
-      fetchReviews(); 
+      fetchReviews();
     }
   }, [user?.email, axiosSecure]);
 
@@ -44,7 +42,7 @@ const MyReview = () => {
       {isLoading ? (
         <div>Loading...</div>
       ) : reviews.length === 0 ? (
-        <div>No reviews available.</div>
+        <div>No reviews found in the backend.</div> 
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((review) => (

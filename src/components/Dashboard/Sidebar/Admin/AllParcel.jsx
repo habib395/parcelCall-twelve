@@ -24,8 +24,8 @@ const AllParcel = () => {
     queryFn: async () => {
       const { data } = await axiosSecure(`/parcels`, {
         params: {
-          fromDate: fromDate ? new Date(fromDate).getTime() : undefined,
-          toDate: toDate ? new Date(toDate).getTime() : undefined,
+          fromDate: fromDate || undefined,
+          toDate: toDate || undefined,
         },
       });
       return data;
@@ -52,7 +52,7 @@ const AllParcel = () => {
         <SectionTitle Subheading="All Parcels"></SectionTitle>
         {/* search section */}
         <div className="py-4">
-          <div className="flex gap-4">
+          <div className="sm:flex gap-4">
             <input type="date" className="px-4 py-2 border rounded-md"
             value={fromDate}
             onChange={(e) => setFormDate(e.target.value) }

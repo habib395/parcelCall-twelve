@@ -11,7 +11,7 @@ const OurFeature = () => {
     AOS.init({ duration: 3000 });
   }, []);
   return (
-    <div className="py-5">
+    <div className="py-5 w-11/12 mx-auto">
         <SectionTitle heading={'Our Features'}></SectionTitle>
       <div className="sm:flex flex-cols items-center justify-center">
         <div

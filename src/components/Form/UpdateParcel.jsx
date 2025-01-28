@@ -29,7 +29,7 @@ const UpdateParcel = () => {
     }
 
 
-    axios.put(`http://localhost:5000/books/${_id}`, newBooks, {
+    axios.put(`https://parcel-server-three.vercel.app/books/${_id}`, newBooks, {
       headers: {
         "Content-Type": 'application/json',
       },

@@ -3,7 +3,6 @@ import useAuth from "../../hooks/useAuth";
 
 const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading, handleWeightChange, price }) => {
     const { user } = useAuth()
-    // console.log(user) gap-2
   return (
     <div className="w-full p-4 sm:p-16 text-gray-800 rounded-xl bg-gray-50">
       <form onSubmit={handleSubmit}>
@@ -181,7 +180,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading, handleW
             />
           </div>
           {/* price*/}
-          <div className="form-control md:w-1/2">
+          <div className="form-control md:w-1/2 py-2">
             <label className="label">
               <span className="label-text">Price(Tk)</span>
             </label>
@@ -200,8 +199,8 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading, handleW
         <button
           type="submit"
           value="submit"
-          className={`w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded ${
-            loading ? 'opacity-50 py-2 cursor-not-allowed' : ''
+          className={`w-full py-4 bg-blue-500 text-white font-semibold rounded ${
+            loading ? 'opacity-50  cursor-not-allowed' : ''
           }`}
           disabled={loading}
         >

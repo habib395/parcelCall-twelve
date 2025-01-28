@@ -14,7 +14,7 @@ const CheckoutPage = () => {
         const createPaymentIntent = async () => {
             try {
                 const { data } = await axiosSecure.post('/createPaymentIntent', {
-                    parcelId: id, // Pass the parcelId only
+                    parcelId: id, 
                 });
 
                 setClientSecret(data.clientSecret);
