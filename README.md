@@ -1,8 +1,31 @@
-# React + Vite
+##Website name: parcelCall
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##Admin: username: Nayeb
 
-Currently, two official plugins are available:
+##live site URL: https://crabby-square.surge.sh/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##Features:
+
+--Role-Based Dashboard
+
+--Data Visualization and Statistics
+
+--Parcel Management
+
+--Approximate Delivery Date Calculation
+
+--Real-Time Parcel Update
+
+--Toast Notifications
+
+--User-Friendly Authentication
+
+--DeliveryMan Panel
+
+--Feedback and Review Management
+
+--Dynamic Reviews Section
+
+--Customizable User Profiles
+
+--Dynamic Parcel Status Updates
