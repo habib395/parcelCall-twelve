@@ -9,9 +9,7 @@ ParcelCall is a full-stack parcel management application where users can book pa
 
 ## 2. Screenshot
 
-![ParcelCall Screenshot](path-to-screenshot.png)
-
-*If possible, add a clean UI screenshot of the project here.*
+![ParcelCall Screenshot](https://i.ibb.co.com/HL11sL9p/12.png)
 
 ## 3. Technologies Used
 
@@ -77,5 +75,40 @@ To run this project locally, follow these steps:
    First, clone both the client-side and server-side repositories using the following commands:
 
    ```bash
-   git clone [client-side-repo-link]
-   git clone [server-side-repo-link]
+   git clone (https://github.com/habib395/parcelCall-twelve)
+   git clone (https://github.com/habib395/parcel-delivery-server)
+
+   cd client
+npm install
+cd ../server
+npm install
+npm start
+npm run dev
+http://localhost:3000
+### Notes:
+- Replace `[client-side-repo-link]` and `[server-side-repo-link]` with the actual GitHub repository URLs.
+- Update the `.env` variables with the necessary credentials for Firebase and MongoDB for both the client and server sides.
+
+
+   ## 7. Live Project & Resources
+
+- **Live Project**: [Deployed site link](https://crabby-square.surge.sh/)  
+- **Client Repository**: [GitHub Client Repo Link](https://github.com/habib395/parcel-delivery-server)  
+
+### Admin Credentials
+- **Email**: nayeb@gmail.com
+- **Password**:  136945
+
+### Delivery Men Credentials
+- **Email**: && **Password**
+- Delivery Men's email and password are:
+
+sujon@gmail.com(123456)
+
+oyalid@gmail.com(159951)
+
+hanif@gmail.com(125678)
+
+safin@gmail.com(123456)
+
+rakib@gmail.com(224466)
