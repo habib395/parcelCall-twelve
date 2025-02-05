@@ -1,31 +1,44 @@
-##Website name: parcelCall
+## Parcel Management System (MERN Stack) - README Summary
 
-##Admin: username: Nayeb
+1. **Project Overview**  
+A full-stack parcel management application where users can book parcels, admins manage deliveries, and delivery personnel track and complete deliveries. Features include authentication, parcel tracking, role-based dashboards, and interactive maps.
 
-##live site URL: https://crabby-square.surge.sh/
+2. **Screenshot**  
+(Add a clean UI screenshot of the project here.)
 
-##Features:
+3. **Technologies Used**  
+- **Frontend**: React, Tailwind CSS, Shadcn, TanStack Query, Firebase Authentication  
+- **Backend**: Node.js, Express.js, MongoDB, Mongoose  
+- **Other**: JWT Authentication, Stripe Payment, React Leaflet (MapBox), ApexCharts  
 
---Role-Based Dashboard
+4. **Core Features**  
+- Role-Based Dashboard  
+- Data Visualization and Statistics  
+- Parcel Management  
+- Approximate Delivery Date Calculation  
+- Real-Time Parcel Update  
+- Toast Notifications  
+- User-Friendly Authentication  
+- DeliveryMan Panel  
+- Feedback and Review Management  
+- Dynamic Reviews Section  
+- Customizable User Profiles  
+- Dynamic Parcel Status Updates  
 
---Data Visualization and Statistics
+5. **Dependencies Used**  
+- **express**  
+- **mongoose**  
+- **firebase**  
+- **tanstack query**  
+- **stripe**  
+- **jsonwebtoken (JWT)**  
+- **react-leaflet (MapBox)**  
+- **apexcharts**  
+- **tailwindcss**  
 
---Parcel Management
+6. **How to Run the Project Locally**
 
---Approximate Delivery Date Calculation
-
---Real-Time Parcel Update
-
---Toast Notifications
-
---User-Friendly Authentication
-
---DeliveryMan Panel
-
---Feedback and Review Management
-
---Dynamic Reviews Section
-
---Customizable User Profiles
-
---Dynamic Parcel Status Updates
+- **Clone the repositories**:  
+  ```bash
+  git clone [client-side-repo-link]  
+  git clone [server-side-repo-link]  
