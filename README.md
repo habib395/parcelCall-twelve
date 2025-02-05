@@ -78,13 +78,11 @@ To run this project locally, follow these steps:
    git clone (https://github.com/habib395/parcelCall-twelve)
    git clone (https://github.com/habib395/parcel-delivery-server)
 
-   cd client
-npm install
-cd ../server
-npm install
-npm start
-npm run dev
-http://localhost:3000
+- cd client
+- npm install 
+- npm start
+- npm run dev
+- http://localhost:3000
 ### Notes:
 - Replace `[client-side-repo-link]` and `[server-side-repo-link]` with the actual GitHub repository URLs.
 - Update the `.env` variables with the necessary credentials for Firebase and MongoDB for both the client and server sides.
@@ -92,8 +90,9 @@ http://localhost:3000
 
    ## 7. Live Project & Resources
 
-- **Live Project**: [Deployed site link](https://crabby-square.surge.sh/)  
-- **Client Repository**: [GitHub Client Repo Link](https://github.com/habib395/parcel-delivery-server)  
+- **Live Project**: [Deployed site link](https://crabby-square.surge.sh/)
+- **Client Repository**: [GitHub Client Repo Link](https://github.com/habib395/parcelCall-twelve)  
+- **Server Repository**: [GitHub Server Repo Link](https://github.com/habib395/parcel-delivery-server)  
 
 ### Admin Credentials
 - **Email**: nayeb@gmail.com
