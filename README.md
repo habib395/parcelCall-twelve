@@ -1,79 +1,81 @@
-## Parcel Management System (MERN Stack) - README Summary
+# ParcelCall - Full Stack Parcel Management System
 
-1. **Project Overview**  
-A full-stack parcel management application where users can book parcels, admins manage deliveries, and delivery personnel track and complete deliveries. Features include authentication, parcel tracking, role-based dashboards, and interactive maps.
+## 1. Project Overview
 
-2. **Screenshot**  
-(Add a clean UI screenshot of the project here.)
+ParcelCall is a full-stack parcel management application where users can book parcels, admins manage deliveries, and delivery personnel track and complete deliveries. The system provides features like user authentication, parcel tracking, real-time updates, and a role-based dashboard for different user types (User, Admin, Delivery Men). It also includes interactive maps, parcel status updates, and analytics for admins.
 
-3. **Technologies Used**  
-- **Frontend**: React, Tailwind CSS, Shadcn, TanStack Query, Firebase Authentication  
-- **Backend**: Node.js, Express.js, MongoDB, Mongoose  
-- **Other**: JWT Authentication, Stripe Payment, React Leaflet (MapBox), ApexCharts  
+### Live Project Link
+[Visit the live site here](https://crabby-square.surge.sh/)
 
-4. **Core Features**  
-- Role-Based Dashboard  
-- Data Visualization and Statistics  
-- Parcel Management  
-- Approximate Delivery Date Calculation  
-- Real-Time Parcel Update  
-- Toast Notifications  
-- User-Friendly Authentication  
-- DeliveryMan Panel  
-- Feedback and Review Management  
-- Dynamic Reviews Section  
-- Customizable User Profiles  
-- Dynamic Parcel Status Updates  
+## 2. Screenshot
 
-5. **Dependencies Used**  
-- **express**  
-- **mongoose**  
-- **firebase**  
-- **tanstack query**  
-- **stripe**  
-- **jsonwebtoken (JWT)**  
-- **react-leaflet (MapBox)**  
-- **apexcharts**  
-- **tailwindcss**  
+![ParcelCall Screenshot](path-to-screenshot.png)
 
-6. **How to Run the Project Locally**
+*If possible, add a clean UI screenshot of the project here.*
 
-- **Clone the repositories**:  
-  ```bash
-  git clone [client-side-repo-link]  
-  git clone [server-side-repo-link]
+## 3. Technologies Used
 
-  # Install dependencies for the client-side
-cd client  
-npm install  
+**Frontend:**
+- React
+- Tailwind CSS
+- Shadcn
+- TanStack Query
+- Firebase Authentication
 
-# Install dependencies for the server-side
-cd ../server  
-npm install  
+**Backend:**
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
 
-# Firebase credentials
-REACT_APP_FIREBASE_API_KEY=your-api-key
-REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
-REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+**Other:**
+- JWT Authentication
+- Stripe Payment
+- MapBox (React Leaflet)
+- ApexCharts
 
-# MongoDB URI (for the server)
-MONGO_URI=your-mongo-uri
+## 4. Core Features
 
-# Any other necessary environment variables
+- **User Authentication**: Email/password and social login options for users.
+- **Role-Based Dashboards**: Separate dashboards for Users, Delivery Men, and Admins.
+- **Parcel Booking & Tracking**: Users can book parcels, and admins assign deliveries to delivery men.
+- **Interactive Map**: Delivery men can track parcels in real time using the integrated MapBox.
+- **Stripe Payment Gateway**: Secure payment integration for booking parcels.
+- **Real-Time Analytics**: Admins can view real-time data about parcel deliveries and user activity.
+- **Responsive UI**: The application is mobile-friendly and has a dark mode toggle.
+- **Toast Notifications**: Notifications to alert users about status updates, delivery changes, etc.
+  
+## 5. Dependencies Used
 
-# Start the client-side development server
-npm start # For the client  
+- **Frontend Dependencies:**
+  - React
+  - Tailwind CSS
+  - Shadcn
+  - TanStack Query
+  - Firebase Authentication
 
-# Start the server-side development server
-npm run dev # For the server  
+- **Backend Dependencies:**
+  - Node.js
+  - Express.js
+  - MongoDB
+  - Mongoose
+  - JWT Authentication
+  - Stripe Payment Gateway
+  - MapBox (React Leaflet)
+  - ApexCharts
+  
+- **Other Tools/Dependencies:**
+  - React Hook Form
+  - React Router DOM
 
+## 6. How to Run the Project Locally
 
-### Explanation:
-1. **Cloning Repositories**: The user will need to clone both the frontend (client-side) and backend (server-side) repositories.
-2. **Installing Dependencies**: Each repository will have its own dependencies, so the user needs to run `npm install` in both the `client` and `server` directories.
-3. **Environment Variables**: The user must set up a `.env` file for both the client and server to store credentials like Firebase API keys, MongoDB URI, etc.
-4. **Starting the Servers**: The client and server are run using `npm start` and `npm run dev` commands, respectively.
-5. **Live Links**: Provide links to the live project and GitHub repositories so that users can access the resources and deployed site.
-6. **Credentials for Admin & Delivery Men**: You can add default test credentials to assist the user in logging into the app.
+To run this project locally, follow these steps:
 
-Replace the placeholders like `[client-side-repo-link]` and `[server-side-repo-link]` with your actual links and relevant details.
+1. **Clone the repositories:**
+
+   First, clone both the client-side and server-side repositories using the following commands:
+
+   ```bash
+   git clone [client-side-repo-link]
+   git clone [server-side-repo-link]
