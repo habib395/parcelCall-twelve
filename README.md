@@ -99,9 +99,8 @@ To run this project locally, follow these steps:
 - **Password**:  136945
 
 ### Delivery Men Credentials
-- **Email**: && **Password**
 - Delivery Men's email and password are:
-
+  
 sujon@gmail.com(123456)
 
 oyalid@gmail.com(159951)
