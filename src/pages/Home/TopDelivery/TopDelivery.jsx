@@ -13,46 +13,46 @@ const TopDelivery = () => {
       try {
         const result = await axiosSecure("/topDeliveryMen");
         setTopDeliveryMen(result.data);
-        setLoading(false);
       } catch (error) {
         console.error("Failed to fetch top delivery men", error);
+      } finally {
         setLoading(false);
       }
     };
     fetchTopDeliveryMen();
   }, [axiosSecure]);
-  // console.log(topDeliveryMen)
 
   if (loading) return <LoadingSpinner />;
+
   return (
-    <div>
-      <SectionTitle heading={"Top Delivery Man"}></SectionTitle>
-      <div className="sm:flex justify-evenly items-center gap-2 py-5">
-      {/* Top three delivery Man are here */}
-      {
-        topDeliveryMen.map((man) =>(
-          <div key={man._id} className="card bg-base-100 shadow-lg">
-          <figure>
-            <img
-              src={man.image || "https://via.placeholder.com/150"}
-              alt={man.name}
-              className="w-full h-48 object-cover"
-            />
-          </figure>
-          <div className="card-body text-center">
-            <h2 className="text-2xl font-bold">{man.name || "N/A"}</h2>
-            <p>
-              <strong>Parcels Delivered:</strong> {man.parcelsDelivered || 0}
-            </p>
-            <p>
-              <strong>Average Rating:</strong>{" "}
-              {man.averageReview === 0 ? "No reviews" : man.averageReview}
-            </p>
+    <div className="container mx-auto py-10 px-6">
+      <SectionTitle heading={"🏆 Top Delivery Men"} />
+      
+      <div className="flex flex-wrap justify-center gap-8 py-5">
+        {topDeliveryMen.map((man) => (
+          <div
+            key={man._id}
+            className="bg-yellow-100 border-2 border-yellow-500 rounded-xl shadow-lg w-80 transform transition duration-300 hover:scale-105 hover:shadow-2xl"
+          >
+            <figure className="overflow-hidden rounded-t-xl">
+              <img
+                src={man.image || "https://via.placeholder.com/150"}
+                alt={man.name}
+                className="w-full h-56 object-cover"
+              />
+            </figure>
+
+            <div className="p-5 text-center">
+              <h2 className="text-2xl font-bold text-yellow-700">{man.name || "N/A"}</h2>
+              <p className="mt-2 text-yellow-600 font-medium">
+                📦 <strong>Parcels Delivered:</strong> {man.parcelsDelivered || 0}
+              </p>
+              <p className="mt-1 text-yellow-600 font-medium">
+                ⭐ <strong>Average Rating:</strong> {man.averageReview === 0 ? "No reviews" : man.averageReview}
+              </p>
+            </div>
           </div>
-        </div>
-        ))
-      }
-        
+        ))}
       </div>
     </div>
   );

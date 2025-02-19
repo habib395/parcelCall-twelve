@@ -11,7 +11,9 @@ const MyProfile = () => {
   const [role, isLoading] = useRole();
   const [selectedImage, setSelectedImage] = useState(null);
   const [uploading, setUploading] = useState(false);
-  if (loading || isLoading) return <LoadingSpinner></LoadingSpinner>;
+  
+  if (loading || isLoading) return <LoadingSpinner />;
+
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setSelectedImage(file);
@@ -40,33 +42,53 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="w-full p-4 sm:p-16 text-gray-800 rounded-xl bg-gray-50">
-      <SectionTitle heading="My Profile"></SectionTitle>
-      <div className="flex gap-10 px-4 py-2">
-        <img
-          className="rounded-full w-24 h-24 border-2 border-gray-300"
-          src={user.photoURL || "https://via.placeholder.com/150"}
-          alt="Profile"
-        />
-        <h4 className="text-2xl">
-          I am {user.displayName} a {role}
-        </h4>
+    <div className="w-full max-w-4xl mx-auto p-6 sm:p-16 bg-white rounded-xl shadow-lg mt-6">
+      <SectionTitle heading="My Profile" />
+
+      <div className="flex items-center space-x-8">
+        <div className="relative">
+          <img
+            className="rounded-full w-32 h-32 border-4 border-gray-300 shadow-lg"
+            src={user.photoURL || "https://via.placeholder.com/150"}
+            alt="Profile"
+          />
+          <div className="absolute bottom-0 right-0 p-2 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 transition">
+            <span className="text-white text-xl">✏️</span>
+          </div>
+        </div>
+        
+        <div>
+          <h4 className="text-2xl font-semibold text-gray-900">{`I am ${user.displayName}, a ${role}`}</h4>
+          <p className="text-lg text-gray-600">{user.email}</p>
+        </div>
       </div>
-      <div className="px-5 py-2">
-        <label htmlFor="image" className="block text-sm">
+
+      <div className="mt-6">
+        <label htmlFor="image" className="block text-sm font-medium text-gray-700">
           Select a new profile picture:
         </label>
-       <input required type="file" id="image" name="image" accept="image/*"  className="block w-full max-w-xs text-sm text-gray-700 my-2 border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500" onChange={handleImageChange}/>
+        <input
+          required
+          type="file"
+          id="image"
+          name="image"
+          accept="image/*"
+          className="block w-full max-w-xs mt-2 text-sm text-gray-700 bg-gray-100 border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          onChange={handleImageChange}
+        />
       </div>
-      <button
-        onClick={handleProfileUpdate}
-        className={`btn btn-sm bg-blue-500 text-white ml-5 ${
-          uploading ? "opacity-50 cursor-not-allowed ml-5" : ""
-        }`}
-        disabled={uploading}
-      >
-        {uploading ? 'Uploading...' : "Update"}
-      </button>
+
+      <div className="mt-6 flex">
+        <button
+          onClick={handleProfileUpdate}
+          className={`btn bg-blue-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-600 focus:ring-4 focus:ring-blue-500 transition ease-in-out duration-200 ${
+            uploading ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          disabled={uploading}
+        >
+          {uploading ? "Uploading..." : "Update Profile"}
+        </button>
+      </div>
     </div>
   );
 };

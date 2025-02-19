@@ -5,40 +5,60 @@ import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../../Shared/LoadingSpinner";
 
 const Statistic = () => {
-  const axiosSecure = useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
 
-  const { data: statData, isLoading} = useQuery({
-    queryKey: ['adminStat'],
-    queryFn: async() =>{
-      const { data } = await axiosSecure('/adminStat')
-      return data
-    }
-  })
+  const { data: statData, isLoading } = useQuery({
+    queryKey: ["adminStat"],
+    queryFn: async () => {
+      const { data } = await axiosSecure("/adminStat");
+      return data;
+    },
+  });
 
-  if (isLoading) return <LoadingSpinner></LoadingSpinner>
+  if (isLoading) return <LoadingSpinner />;
+
   return (
-    <div className="py-5 w-11/12 mx-auto">
-      <SectionTitle heading={'Statistic'}></SectionTitle>
-     <div className="sm:flex">
-     <div className="bg-base-200 shadow-xl p-3 lg:p-10 m-5 rounded-lg md:w-full">
-        <h2 className="text-xl lg:text-2xl font-bold text-center pb-2">
-          Total Parcels Booked
-        </h2>
-        <p className="text-center text-2xl">{statData?.parcelBooked}</p>
+    <div className="py-10 w-11/12 mx-auto">
+        <h2 className="text-3xl font-bold text-yellow-500 text-center mb-10">
+        Statistics
+      </h2>
+      <div className="grid md:grid-cols-3 gap-8 items-center">
+        {/* Statistic Card 1 */}
+        <div
+          className="bg-yellow-100 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-200"
+        >
+          <h2 className="text-2xl font-bold text-center text-gray-800 pb-2">
+            Total Parcels Booked
+          </h2>
+          <p className="text-center text-3xl font-semibold text-yellow-600">
+            {statData?.parcelBooked}
+          </p>
+        </div>
+
+        {/* Statistic Card 2 */}
+        <div
+          className="bg-yellow-100 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-200"
+        >
+          <h2 className="text-2xl font-bold text-center text-gray-800 pb-2">
+            Total Parcels Delivered
+          </h2>
+          <p className="text-center text-3xl font-semibold text-yellow-600">
+            {statData?.parcelDelivered}
+          </p>
+        </div>
+
+        {/* Statistic Card 3 */}
+        <div
+          className="bg-yellow-100 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-200"
+        >
+          <h2 className="text-2xl font-bold text-center text-gray-800 pb-2">
+            Total Users
+          </h2>
+          <p className="text-center text-3xl font-semibold text-yellow-600">
+            {statData?.TotalUser}
+          </p>
+        </div>
       </div>
-      <div className="bg-base-200 shadow-xl p-3 lg:p-10 m-5 rounded-lg md:w-full">
-        <h2 className="text-xl lg:text-2xl font-bold text-center pb-2">
-          Total Parcels Delivered
-        </h2>
-        <p className="text-center text-2xl">{statData?.parcelDelivered}</p>
-      </div>
-      <div className="bg-base-200 shadow-xl p-3 lg:p-10 m-5 rounded-lg md:w-full">
-        <h2 className="text-xl lg:text-2xl font-bold text-center pb-2">
-          Total Users
-        </h2>
-        <p className="text-center text-2xl">{statData?.TotalUser}</p>
-      </div>
-     </div>
     </div>
   );
 };
