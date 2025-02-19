@@ -35,7 +35,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar sm:fixed bg-opacity-30 text-white bg-black z-50">
+    <div className="navbar sm:fixed bg-opacity-30 text-white bg-black z-10">
       <div className="w-11/12 mx-auto navbar">
         <div className="flex-1">
           <Link to="/" className="btn btn-ghost sm:text-xl">
@@ -62,7 +62,7 @@ const Navbar = () => {
           </button>
           {user?.email ? (
             <div>
-              <div className="dropdown dropdown-end">
+              <div className="dropdown dropdown-end z-50">
                 <div
                   tabIndex={0}
                   role="button"

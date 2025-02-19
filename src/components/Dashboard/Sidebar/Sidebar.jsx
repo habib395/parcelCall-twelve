@@ -29,7 +29,6 @@ const Sidebar = () => {
         <div className='block cursor-pointer p-4 font-bold'>
           <Link to='/'>
             <img
-              // className='hidden md:block'
               src={logo}
               alt='logo'
               width='100'
@@ -58,7 +57,6 @@ const Sidebar = () => {
           <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-blue-300 mx-auto'>
             <Link to='/'>
               <img
-                // className='hidden md:block'
                 src={logo}
                 alt='logo'
                 width='100'
@@ -88,12 +86,6 @@ const Sidebar = () => {
 
       <div>
         <hr />
-
-        {/* <MenuItem
-          icon={FcSettings}
-          label='Profile'
-          address='/dashboard/profile'
-        /> */}
         <button
           onClick={logOut}
           className='flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'
