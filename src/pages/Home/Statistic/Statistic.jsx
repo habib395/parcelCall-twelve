@@ -18,7 +18,7 @@ const Statistic = () => {
   if (isLoading) return <LoadingSpinner />;
 
   return (
-    <div className="py-10 w-11/12 mx-auto">
+    <div id="Statistics" className="py-10 w-11/12 mx-auto">
       <SectionTitle heading={"Statistics"} />
       <div className="grid md:grid-cols-3 gap-8 items-center">
         {/* Statistic Card 1 */}

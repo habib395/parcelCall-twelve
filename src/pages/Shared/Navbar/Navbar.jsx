@@ -4,9 +4,11 @@ import useAuth from "../../../hooks/useAuth";
 import { FaRocketchat } from "react-icons/fa";
 import { FaMoon, FaSun } from "react-icons/fa"; // Import the sun and moon icons
 import { useState, useEffect } from "react";
+import { HiMenu, HiX } from "react-icons/hi"; 
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const [isOpen, setIsOpen] = useState(false);
   
   // Dark mode state
   const [darkMode, setDarkMode] = useState(false);
@@ -35,19 +37,50 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar sm:fixed bg-opacity-30 text-white bg-black z-10">
-      <div className="w-11/12 mx-auto navbar">
+    <div className="navbar sm:fixed bg-opacity-30 text-white bg-black z-50">
+      <div className="w-11/12 mx-auto navbar gap-5">
         <div className="flex-1">
           <Link to="/" className="btn btn-ghost sm:text-xl">
             <FaRocketchat className="sm:text-5xl text-yellow-500 font-extrabold" />
             ParcelCall
           </Link>
         </div>
-        <div className="flex-1">
-          <Link to="/" className="text-sm text-white px-2">
-            Home
-          </Link>
+
+        <button className="md:hidden text-white text-2xl" onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? <HiX /> : <HiMenu />} {/* Show X icon when menu is open */}
+      </button>
+      
+      <div className="flex-1 sm:gap-8">
+      <div className="flex items-center justify-between w-full z-50">
+      <div className="hidden md:flex items-center gap-8">
+        <a href="#Statistics" className="nav-link hover:text-yellow-400 transition-colors duration-300">
+          STATISTICS
+        </a>
+        <a href="#Reviews" className="nav-link hover:text-yellow-400 transition-colors duration-300">
+          REVIEWS
+        </a>
+        <a href="#about" className="nav-link hover:text-yellow-400 transition-colors duration-300">
+          ABOUT US
+        </a>
+      </div>
+
+        {isOpen && (
+        <div className="absolute top-16 left-0 w-full bg-black bg-opacity-90 flex flex-col items-center space-y-6 py-6 text-white md:hidden">
+          <a href="#Statistics" className="nav-link hover:text-yellow-400 transition-colors duration-300" onClick={() => setIsOpen(false)}>
+            STATISTICS
+          </a>
+          <a href="#Reviews" className="nav-link hover:text-yellow-400 transition-colors duration-300" onClick={() => setIsOpen(false)}>
+            REVIEWS
+          </a>
+          <a href="#about" className="nav-link hover:text-yellow-400 transition-colors duration-300" onClick={() => setIsOpen(false)}>
+            ABOUT US
+          </a>
         </div>
+      )}
+      </div>
+      </div>
+
+
         <div className="flex-none text-black">
           {/* Dark mode toggle button */}
           <button

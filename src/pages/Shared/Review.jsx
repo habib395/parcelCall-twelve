@@ -27,7 +27,7 @@ const Review = () => {
   }, []);
 
   return (
-    <div className="container mx-auto py-10 px-6 dark:bg-gray-900 dark:text-white">
+    <div id="Reviews" className="container mx-auto py-10 px-6 dark:bg-gray-900 dark:text-white">
       <SectionTitle heading={"⭐ Customer Reviews ⭐"} />
 
       {isLoading ? (
