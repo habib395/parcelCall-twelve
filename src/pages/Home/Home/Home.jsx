@@ -8,7 +8,7 @@ import BookParcel from '../../Shared/Navbar/BookParcel';
 
 const Home = () => {
     return (
-        <div>
+        <div className='dark:bg-gray-900'>
             <Banner></Banner>
             {/* Our Features Section */}
             <OurFeature></OurFeature>

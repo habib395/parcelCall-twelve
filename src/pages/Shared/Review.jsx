@@ -3,6 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import LoadingSpinner from "./LoadingSpinner";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 const Review = () => {
   const { user } = useAuth();
@@ -26,10 +27,8 @@ const Review = () => {
   }, []);
 
   return (
-    <div className="container mx-auto py-10 px-6">
-      <h2 className="text-3xl font-bold text-yellow-500 text-center mb-10">
-        ⭐ Customer Reviews ⭐
-      </h2>
+    <div className="container mx-auto py-10 px-6 dark:bg-gray-900 dark:text-white">
+      <SectionTitle heading={"⭐ Customer Reviews ⭐"} />
 
       {isLoading ? (
         <div className="flex justify-center items-center h-40">
@@ -44,7 +43,7 @@ const Review = () => {
           {reviewss.map((review) => (
             <div
               key={review._id}
-              className="bg-yellow-100 border border-yellow-400 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+              className="bg-yellow-100 border border-yellow-400 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700"
             >
               <div className="flex items-center mb-4">
                 <img
@@ -53,20 +52,20 @@ const Review = () => {
                   className="w-14 h-14 rounded-full border-2 border-yellow-500 mr-4"
                 />
                 <div>
-                  <p className="font-bold text-yellow-600">{review.reviewerName}</p>
-                  <p className="text-sm text-yellow-500">
+                  <p className="font-bold text-yellow-600 dark:text-yellow-400">{review.reviewerName}</p>
+                  <p className="text-sm text-yellow-500 dark:text-gray-400">
                     {new Date(review.reviewDate).toLocaleDateString()}
                   </p>
                 </div>
               </div>
 
               <div className="mb-3">
-                <p className="text-yellow-600 font-semibold">
-                  ⭐ Rating: <span className="text-yellow-700">{review.rating} / 5</span>
+                <p className="text-yellow-600 font-semibold dark:text-yellow-400">
+                  ⭐ Rating: <span className="text-yellow-700 dark:text-yellow-500">{review.rating} / 5</span>
                 </p>
               </div>
 
-              <p className="text-yellow-700">{review.feedback}</p>
+              <p className="text-yellow-700 dark:text-gray-300">{review.feedback}</p>
             </div>
           ))}
         </div>

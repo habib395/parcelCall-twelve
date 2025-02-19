@@ -34,8 +34,8 @@ const MyParcel = () => {
   if (isLoading) return <LoadingSpinner />;
 
   return (
-    <>
-      <div className="container mx-auto px-4 sm:px-8">
+    <div className="py-10 w-11/12 mx-auto dark:bg-gray-900 dark:text-white">
+      <div className="bg-blue-100 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-blue-200 dark:bg-gray-800 dark:text-gray-100">
         <div className="py-8">
           <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
             <div className="flex items-center gap-5 py-3">
@@ -60,7 +60,7 @@ const MyParcel = () => {
                   </li>
                   <li>
                     <button onClick={() => handleFilterChange("On the Way")}>
-                    On the Way
+                      On the Way
                     </button>
                   </li>
                   <li>
@@ -75,25 +75,25 @@ const MyParcel = () => {
               <table className="min-w-full leading-normal">
                 <thead>
                   <tr>
-                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
+                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold dark:bg-gray-700 dark:text-gray-100">
                       Parcel Type
                     </th>
-                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
+                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold dark:bg-gray-700 dark:text-gray-100">
                       Req. Delivery Date
                     </th>
-                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
+                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold dark:bg-gray-700 dark:text-gray-100">
                       Appro. Delivery Date
                     </th>
-                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
+                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold dark:bg-gray-700 dark:text-gray-100">
                       Booking Date
                     </th>
-                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
+                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold dark:bg-gray-700 dark:text-gray-100">
                       Delivery Men ID
                     </th>
-                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
+                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold dark:bg-gray-700 dark:text-gray-100">
                       Status
                     </th>
-                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
+                    <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold dark:bg-gray-700 dark:text-gray-100">
                       Action
                     </th>
                   </tr>
@@ -112,10 +112,8 @@ const MyParcel = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
 export default MyParcel;
-
-

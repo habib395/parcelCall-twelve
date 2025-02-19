@@ -1,12 +1,39 @@
 import { IoIosNotifications } from "react-icons/io";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-// import logo from '../../../../assets/logo.png'
 import { FaRocketchat } from "react-icons/fa";
+import { FaMoon, FaSun } from "react-icons/fa"; // Import the sun and moon icons
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
-  // console.log(user)
+  
+  // Dark mode state
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Check localStorage for saved theme
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("darkMode");
+    if (savedTheme === "true") {
+      setDarkMode(true);
+      document.body.classList.add("dark");
+    }
+  }, []);
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => {
+      const newMode = !prev;
+      localStorage.setItem("darkMode", newMode); // Save theme in localStorage
+      if (newMode) {
+        document.body.classList.add("dark"); // Add dark class to body
+      } else {
+        document.body.classList.remove("dark"); // Remove dark class from body
+      }
+      return newMode;
+    });
+  };
+
   return (
     <div className="navbar sm:fixed bg-opacity-30 text-white bg-black z-50">
       <div className="w-11/12 mx-auto navbar">
@@ -22,6 +49,17 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex-none text-black">
+          {/* Dark mode toggle button */}
+          <button
+            onClick={toggleDarkMode}
+            className="btn btn-ghost sm:text-xl text-white px-3"
+          >
+            {darkMode ? (
+              <FaSun className="text-yellow-500" /> // Sun icon for light mode
+            ) : (
+              <FaMoon className="text-gray-500" /> // Moon icon for dark mode
+            )}
+          </button>
           {user?.email ? (
             <div>
               <div className="dropdown dropdown-end">

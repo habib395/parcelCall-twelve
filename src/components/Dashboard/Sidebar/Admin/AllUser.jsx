@@ -1,48 +1,45 @@
-;import UserDataRow from "../../TableRows/UserDataRow";
+import UserDataRow from "../../TableRows/UserDataRow";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../hooks/useAuth";
 import { useState } from "react";
 
-
 const AllUser = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const [currentPage, setCurrentPage] = useState(1)
-  const usersPerPage = 5
-  
+  const [currentPage, setCurrentPage] = useState(1);
+  const usersPerPage = 5;
+
   const {
     data: users = [],
     isLoading,
     refetch,
   } = useQuery({
     queryKey: ["users", user?.email],
-    queryFn: async () => { 
+    queryFn: async () => {
       const { data } = await axiosSecure(`/users/${user?.email}`);
       return data;
     },
   });
-  // console.log(users)
-  
+
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
 
-  const totalPages = Math.ceil(users.length / usersPerPage)
+  const totalPages = Math.ceil(users.length / usersPerPage);
 
-  const handleNextPage = () =>{
-    if(currentPage < totalPages) setCurrentPage((prev) => prev + 1)
+  const handleNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+  };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
-
-  const handlePrevPage = () =>{
-    if(currentPage > 1) setCurrentPage((prev) => prev - 1)
-  }
-
-  if(isLoading){
-    return <div>Loading...</div>
-  }
-
 
   return (
     <div>
@@ -54,32 +51,31 @@ const AllUser = () => {
                 <tr>
                   <th
                     scope="col"
-                    className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
+                    className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 dark:bg-gray-800 dark:border-gray-700 dark:text-white text-left text-sm uppercase font-bold"
                   >
                     User's Name
                   </th>
                   <th
                     scope="col"
-                    className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
+                    className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 dark:bg-gray-800 dark:border-gray-700 dark:text-white text-left text-sm uppercase font-bold"
                   >
                     Phone Number
                   </th>
                   <th
                     scope="col"
-                    className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
+                    className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 dark:bg-gray-800 dark:border-gray-700 dark:text-white text-left text-sm uppercase font-bold"
                   >
                     Number of Parcels Booked
                   </th>
-
                   <th
                     scope="col"
-                    className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
+                    className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 dark:bg-gray-800 dark:border-gray-700 dark:text-white text-left text-sm uppercase font-bold"
                   >
                     Total Spent Amount
                   </th>
                   <th
                     scope="col"
-                    className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
+                    className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 dark:bg-gray-800 dark:border-gray-700 dark:text-white text-left text-sm uppercase font-bold"
                   >
                     Actions
                   </th>
@@ -98,16 +94,23 @@ const AllUser = () => {
           </div>
         </div>
 
+        {/* Pagination Controls */}
         <div className="flex justify-between items-center mt-4">
-          <button className={`btn ${currentPage === 1 ? "btn-disabled" : ""}`}
-          onClick={handlePrevPage}>
+          <button
+            className={`btn ${currentPage === 1 ? "btn-disabled" : ""}`}
+            onClick={handlePrevPage}
+            disabled={currentPage === 1}
+          >
             Previous
           </button>
-          <p>
-            page {currentPage} of {totalPages}
+          <p className="text-gray-800 dark:text-white">
+            Page {currentPage} of {totalPages}
           </p>
-          <button className={`btn ${currentPage === totalPages ? "btn-disabled" : ""}`}
-          onClick={handleNextPage}>
+          <button
+            className={`btn ${currentPage === totalPages ? "btn-disabled" : ""}`}
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+          >
             Next
           </button>
         </div>

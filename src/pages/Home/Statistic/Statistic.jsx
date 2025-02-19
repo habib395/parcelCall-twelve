@@ -19,9 +19,7 @@ const Statistic = () => {
 
   return (
     <div className="py-10 w-11/12 mx-auto">
-        <h2 className="text-3xl font-bold text-yellow-500 text-center mb-10">
-        Statistics
-      </h2>
+      <SectionTitle heading={"Statistics"} />
       <div className="grid md:grid-cols-3 gap-8 items-center">
         {/* Statistic Card 1 */}
         <div

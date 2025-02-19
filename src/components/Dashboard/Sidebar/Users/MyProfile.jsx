@@ -11,7 +11,7 @@ const MyProfile = () => {
   const [role, isLoading] = useRole();
   const [selectedImage, setSelectedImage] = useState(null);
   const [uploading, setUploading] = useState(false);
-  
+
   if (loading || isLoading) return <LoadingSpinner />;
 
   const handleImageChange = (e) => {
@@ -42,13 +42,13 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 sm:p-16 bg-white rounded-xl shadow-lg mt-6">
+    <div className="w-full max-w-4xl mx-auto p-6 sm:p-16 bg-white rounded-xl shadow-lg mt-6 dark:bg-gray-900 dark:text-white">
       <SectionTitle heading="My Profile" />
 
       <div className="flex items-center space-x-8">
         <div className="relative">
           <img
-            className="rounded-full w-32 h-32 border-4 border-gray-300 shadow-lg"
+            className="rounded-full w-32 h-32 border-4 border-gray-300 shadow-lg dark:border-gray-600"
             src={user.photoURL || "https://via.placeholder.com/150"}
             alt="Profile"
           />
@@ -56,15 +56,15 @@ const MyProfile = () => {
             <span className="text-white text-xl">✏️</span>
           </div>
         </div>
-        
+
         <div>
-          <h4 className="text-2xl font-semibold text-gray-900">{`I am ${user.displayName}, a ${role}`}</h4>
-          <p className="text-lg text-gray-600">{user.email}</p>
+          <h4 className="text-2xl font-semibold text-gray-900 dark:text-white">{`I am ${user.displayName}, a ${role}`}</h4>
+          <p className="text-lg text-gray-600 dark:text-gray-400">{user.email}</p>
         </div>
       </div>
 
       <div className="mt-6">
-        <label htmlFor="image" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="image" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
           Select a new profile picture:
         </label>
         <input
@@ -73,7 +73,7 @@ const MyProfile = () => {
           id="image"
           name="image"
           accept="image/*"
-          className="block w-full max-w-xs mt-2 text-sm text-gray-700 bg-gray-100 border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          className="block w-full max-w-xs mt-2 text-sm text-gray-700 bg-gray-100 border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 transition dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 dark:focus:ring-blue-400"
           onChange={handleImageChange}
         />
       </div>

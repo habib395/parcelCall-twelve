@@ -26,6 +26,9 @@ const Statistics = () => {
     chart: {
       type: "bar",
       height: 350,
+      toolbar: {
+        show: false, // Hide the toolbar in dark mode
+      },
     },
     xaxis: {
       categories: barChartData?.map((data) => data._id), // Date (_id from bookingByDate)
@@ -38,22 +41,31 @@ const Statistics = () => {
     title: {
       text: "Bookings by Date",
       align: "center",
+      style: {
+        fontSize: "18px",
+        color: "#4a4a4a", // Text color
+      },
+    },
+    theme: {
+      mode: "light", // Will use the theme switch logic
     },
   };
-  
+
   const barChartSeries = [
     {
       name: "Bookings",
       data: barChartData?.map((data) => data.count), // Count from bookingByDate
     },
   ];
-  
 
   // Prepare the data for the line chart (Booked vs Delivered)
   const lineChartOptions = {
     chart: {
       type: "line",
       height: 350,
+      toolbar: {
+        show: false,
+      },
     },
     xaxis: {
       categories: lineChartData?.map((data) => data._id), // Date
@@ -66,6 +78,13 @@ const Statistics = () => {
     title: {
       text: "Booked vs Delivered Parcels",
       align: "center",
+      style: {
+        fontSize: "18px",
+        color: "#4a4a4a",
+      },
+    },
+    theme: {
+      mode: "light", // Switch to dark mode when toggled
     },
   };
 
@@ -85,9 +104,12 @@ const Statistics = () => {
   }
 
   return (
-    <div>
-      <h2>Admin Statistics Page</h2>
-      <div className="chart-container">
+    <div className="py-10 w-11/12 mx-auto dark:bg-gray-900 dark:text-white">
+      <h2 className="text-3xl font-semibold text-center dark:text-white mb-8">
+        Admin Statistics Page
+      </h2>
+
+      <div className="chart-container mb-8">
         <ApexCharts
           options={barChartOptions}
           series={barChartSeries}
