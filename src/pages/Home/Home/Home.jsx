@@ -5,6 +5,7 @@ import Statistic from '../Statistic/Statistic';
 import TopDelivery from '../TopDelivery/TopDelivery';
 import Review from '../../Shared/Review';
 import BookParcel from '../../Shared/Navbar/BookParcel';
+import About from '../About';
 
 const Home = () => {
     return (
@@ -20,6 +21,8 @@ const Home = () => {
             <Review></Review>
             {/* Top Delivery Man  */}
             <TopDelivery></TopDelivery>
+            {/* About section */}
+            <About></About>
         </div>
     );
 };
