@@ -1,184 +1,153 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
-import { TbFidgetSpinner } from 'react-icons/tb'
-import useAuth from './../../hooks/useAuth';
+import { TbFidgetSpinner } from "react-icons/tb";
+import useAuth from "../../hooks/useAuth";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import axios from 'axios'
 import { imageUpload, saveUser } from "../../api/utils";
+import Lottie from "lottie-react";
+import registerLottie from "../../../assets/lottie/register.json";
 
 const Register = () => {
-  const { createUser, updateUserProfile, signInWithGoogle, loading } = useAuth()
-  const navigate = useNavigate()
+  const { createUser, updateUserProfile, signInWithGoogle, loading } = useAuth();
+  const navigate = useNavigate();
 
-  const handleSubmit = async event => {
-    event.preventDefault()
-    const form = event.target
-    const name = form.name.value
-    const phone = form.phone.value
-    const email = form.email.value
-    const password = form.password.value
-    const image = form.image.files[0]
-    
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const phone = form.phone.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const image = form.image.files[0];
 
-    //send data to the imgbb
-    const photoURL = await imageUpload(image)
-    // console.log(photoURL)
+    const photoURL = await imageUpload(image);
 
     try {
-      const result = await createUser(email, password)
-
-      //3. Save username & profile photo
-      await updateUserProfile(name, photoURL)
-      console.log(result)
-      // save user info in db if the user is new
-      await saveUser({ ...result?.user, name, photoURL, phone })
-      navigate('/')
-      toast.success('Register Successful')
+      const result = await createUser(email, password);
+      await updateUserProfile(name, photoURL);
+      await saveUser({ ...result?.user, name, photoURL, phone });
+      navigate("/");
+      toast.success("Registration Successful");
     } catch (err) {
-      console.log(err)
-      toast.error(err?.message)
+      toast.error(err?.message);
     }
-  }
+  };
 
-    const handleGoogleSignIn = async () => {
-      try {
-        const data = await signInWithGoogle()
-        await saveUser(data?.user)
-        navigate('/')
-        toast.success('Register Successful')
-      } catch (err) {
-        console.log(err)
-        toast.error(err?.message)
-      }
+  const handleGoogleSignIn = async () => {
+    try {
+      const data = await signInWithGoogle();
+      await saveUser(data?.user);
+      navigate("/");
+      toast.success("Registration Successful");
+    } catch (err) {
+      toast.error(err?.message);
     }
-  
-
+  };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white">
-      <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
-        <div className="mb-8 text-center">
-          <h1 className="my-3 text-4xl font-bold">Register</h1>
-          <p className="text-sm text-gray-400">Welcome to ParcelCall</p>
-        </div>
-        <form
-          onSubmit={handleSubmit}
-          noValidate=""
-          action=""
-          className="space-y-6 ng-untouched ng-pristine ng-valid"
-        >
-          <div className="space-y-4">
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-100 p-4">
+      {/* Form Section */}
+      <div className="flex justify-center items-center w-full md:w-1/2 max-w-lg p-6 bg-white shadow-lg rounded-lg">
+        <div className="w-full">
+          <div className="text-center mb-4">
+            <h1 className="text-2xl font-bold text-gray-700">Register</h1>
+            <p className="text-gray-500 text-sm">Create your account</p>
+          </div>
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="email" className="block mb-2 text-sm">
-                User Name
-              </label>
+              <label className="text-sm font-medium">Full Name</label>
               <input
                 type="text"
                 name="name"
-                id="name"
-                placeholder="Enter Your Name Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-blue-500 bg-gray-200 text-gray-900"
-                data-temp-mail-org="0"
+                required
+                placeholder="Your Name"
+                className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-yellow-500 text-sm"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block mb-2 text-sm">
-                Phone Number
-              </label>
+              <label className="text-sm font-medium">Phone Number</label>
               <input
-                type="number"
+                type="tel"
                 name="phone"
-                id="phone"
                 required
-                placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-blue-500 bg-gray-200 text-gray-900"
-                data-temp-mail-org="0"
+                placeholder="Your Phone Number"
+                className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-yellow-500 text-sm"
               />
             </div>
             <div>
-              <label htmlFor="image" className="block mb-2 text-sm">
-                Select Image:
-              </label>
+              <label className="text-sm font-medium">Profile Picture</label>
               <input
-                required
                 type="file"
-                id="image"
                 name="image"
                 accept="image/*"
+                required
+                className="w-full file:bg-yellow-500 file:text-white file:border-0 file:px-3 file:py-2 rounded-md"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block mb-2 text-sm">
-                Email address
-              </label>
+              <label className="text-sm font-medium">Email</label>
               <input
                 type="email"
                 name="email"
-                id="email"
                 required
-                placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-blue-500 bg-gray-200 text-gray-900"
-                data-temp-mail-org="0"
+                placeholder="Your Email"
+                className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-yellow-500 text-sm"
               />
             </div>
             <div>
-              <div className="flex justify-between">
-                <label htmlFor="password" className="text-sm mb-2">
-                  Password
-                </label>
-              </div>
+              <label className="text-sm font-medium">Password</label>
               <input
                 type="password"
                 name="password"
-                autoComplete="new-password"
-                id="password"
                 required
                 placeholder="*******"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-blue-500 bg-gray-200 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-yellow-500 text-sm"
               />
             </div>
-          </div>
 
-          <div>
             <button
               type="submit"
-              className="bg-blue-400 w-full rounded-md py-3 text-white"
+              className="w-full bg-yellow-500 text-white py-2 rounded-md hover:bg-yellow-600 transition text-sm"
             >
-              {/* continue */}
               {loading ? (
-                <TbFidgetSpinner className="animate-spin m-auto" />
+                <TbFidgetSpinner className="animate-spin mx-auto" />
               ) : (
-                "Continue"
+                "Sign Up"
               )}
             </button>
-          </div>
-        </form>
-        <div className="flex items-center pt-4 space-x-1">
-          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-          <p className="px-3 text-sm dark:text-gray-400">
-            Signup with social accounts
-          </p>
-          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-        </div>
-        <div
-          onClick={handleGoogleSignIn}
-          className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
-        >
-          <FcGoogle size={32} />
+          </form>
 
-          <p>Continue with Google</p>
-        </div>
-        <p className="px-6 text-sm text-center text-gray-400">
-          Already have an account?{" "}
-          <Link
-            to="/login"
-            className="hover:underline hover:text-blue-500 text-gray-600"
+          <div className="flex items-center my-3">
+            <hr className="flex-1 border-gray-300" />
+            <span className="mx-2 text-gray-400 text-xs">or</span>
+            <hr className="flex-1 border-gray-300" />
+          </div>
+
+          {/* Google Sign-In */}
+          <button
+            onClick={handleGoogleSignIn}
+            className="flex items-center justify-center w-full border py-2 rounded-md hover:bg-gray-200 transition text-sm"
           >
-            Login
-          </Link>
-          .
-        </p>
+            <FcGoogle size={20} className="mr-2" /> Continue with Google
+          </button>
+
+          <p className="text-center text-gray-500 text-xs mt-3">
+            Already have an account?{" "}
+            <Link to="/login" className="text-yellow-500 hover:underline">
+              Login
+            </Link>
+          </p>
+        </div>
+      </div>
+
+      {/* Lottie Animation */}
+      <div className="w-full md:w-1/2 flex justify-center items-center p-4">
+        <Lottie
+          animationData={registerLottie}
+          loop={true}
+          className="max-w-sm sm:max-w-md lg:max-w-lg w-full"
+        />
       </div>
     </div>
   );

@@ -96,7 +96,7 @@ const BookDataRow = ({ book, refetch }) => {
             {status === "Delivered" && (
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="btn btn-sm bg-green-500 hover:bg-green-600 text-white transition-all duration-300"
+                className="btn btn-sm bg-yellow-500 hover:bg-yellow-600 text-white transition-all duration-300"
                 disabled={isReviewCompleted}
               >
                 {isReviewCompleted ? "Reviewed" : "Review"}

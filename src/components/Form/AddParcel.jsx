@@ -7,7 +7,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading, handleW
     <div className="py-10 w-11/12 mx-auto dark:bg-gray-900 dark:text-white">
       <SectionTitle heading="Book A Parcel" />
       <div
-        className="bg-blue-100 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-blue-200 dark:bg-gray-800 dark:text-gray-100"
+        className="bg-blue-100 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-blue-200 dark:bg-gray-800 dark:text-gray-800"
         data-aos="fade-up"
       >
         <form onSubmit={handleSubmit}>
@@ -203,7 +203,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading, handleW
           <button
             type="submit"
             value="submit"
-            className={`w-full py-4 bg-blue-500 text-white font-semibold rounded ${
+            className={`w-full py-4 bg-yellow-500 text-white font-semibold rounded ${
               loading ? 'opacity-50  cursor-not-allowed' : ''
             }`}
             disabled={loading}

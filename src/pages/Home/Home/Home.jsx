@@ -6,6 +6,7 @@ import TopDelivery from '../TopDelivery/TopDelivery';
 import Review from '../../Shared/Review';
 import BookParcel from '../../Shared/Navbar/BookParcel';
 import About from '../About';
+import AllDeliveryMan from './../../../components/Dashboard/Sidebar/Admin/AllDeliveryMan';
 
 const Home = () => {
     return (
@@ -19,10 +20,12 @@ const Home = () => {
             <BookParcel></BookParcel>
             {/* Reviews Details */}0
             <Review></Review>
-            {/* Top Delivery Man  */}
-            <TopDelivery></TopDelivery>
             {/* About section */}
             <About></About>
+            {/* All delivery Man */}
+            <AllDeliveryMan></AllDeliveryMan>
+            {/* Top Delivery Man  */}
+            <TopDelivery></TopDelivery>
         </div>
     );
 };

@@ -52,7 +52,7 @@ const MyProfile = () => {
             src={user.photoURL || "https://via.placeholder.com/150"}
             alt="Profile"
           />
-          <div className="absolute bottom-0 right-0 p-2 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 transition">
+          <div className="absolute bottom-0 right-0 p-2 bg-yellow-500 rounded-full cursor-pointer hover:bg-yellow-600 transition">
             <span className="text-white text-xl">✏️</span>
           </div>
         </div>
@@ -81,7 +81,7 @@ const MyProfile = () => {
       <div className="mt-6 flex">
         <button
           onClick={handleProfileUpdate}
-          className={`btn bg-blue-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-600 focus:ring-4 focus:ring-blue-500 transition ease-in-out duration-200 ${
+          className={`btn bg-yellow-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-yellow-600 focus:ring-4 focus:ring-blue-500 transition ease-in-out duration-200 ${
             uploading ? "opacity-50 cursor-not-allowed" : ""
           }`}
           disabled={uploading}

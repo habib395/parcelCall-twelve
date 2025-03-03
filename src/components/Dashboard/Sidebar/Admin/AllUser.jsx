@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../hooks/useAuth";
 import { useState } from "react";
+import LoadingSpinner from './../../../../pages/Shared/LoadingSpinner';
 
 const AllUser = () => {
   const { user } = useAuth();
@@ -38,7 +39,7 @@ const AllUser = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div><LoadingSpinner></LoadingSpinner></div>;
   }
 
   return (
@@ -120,3 +121,5 @@ const AllUser = () => {
 };
 
 export default AllUser;
+
+

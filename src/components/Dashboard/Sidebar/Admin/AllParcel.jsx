@@ -50,29 +50,6 @@ const AllParcel = () => {
     <div className="container mx-auto px-4 sm:px-8">
       <SectionTitle Subheading="All Parcels" />
 
-      {/* Search Section */}
-      <div className="py-4">
-        <div className="sm:flex gap-4 mb-4">
-          <input
-            type="date"
-            className="px-4 py-2 border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
-            value={fromDate}
-            onChange={(e) => setFormDate(e.target.value)}
-          />
-          <input
-            type="date"
-            className="px-4 py-2 border rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
-            value={toDate}
-            onChange={(e) => setToDate(e.target.value)}
-          />
-          <button
-            className="px-4 py-2 bg-blue-500 text-white rounded-md transition-all duration-300 hover:bg-blue-600"
-            onClick={handleSearch}
-          >
-            Search
-          </button>
-        </div>
-      </div>
 
       {/* Parcel Table */}
       <div className="py-4">

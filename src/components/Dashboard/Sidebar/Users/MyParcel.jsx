@@ -40,7 +40,7 @@ const MyParcel = () => {
           <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
             <div className="flex items-center gap-5 py-3">
               <h4>Filter by Status:</h4>
-              <div className="dropdown dropdown-hover">
+              <div className="dropdown dropdown-hover dark:text-gray-800">
                 <div tabIndex={0} role="button" className="btn m-1">
                   {selectedStatus || "All"}
                 </div>
