@@ -20,6 +20,7 @@ import UpdateParcel from "../components/Form/UpdateParcel";
 import axios from "axios";
 import CheckoutPage from "../pages/CheckoutPage";
 import PaymentSuccess from "../pages/PaymentSuccess";
+import Contact from "../pages/Home/Contact.jsx/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+      {
+        path: "/contact",
+        element: <Contact></Contact>
+      }
     ],
   },
   { path: "/login", element: <Login></Login> },

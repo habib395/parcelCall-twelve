@@ -1,5 +1,5 @@
 import { IoIosNotifications } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { FaRocketchat } from "react-icons/fa";
 import { FaMoon, FaSun } from "react-icons/fa"; // Import the sun and moon icons
@@ -38,21 +38,36 @@ const Navbar = () => {
 
   return (
     <div className="navbar sm:fixed bg-opacity-30 text-white bg-black z-50">
-      <div className="w-11/12 mx-auto navbar gap-5">
-        <div className="flex-1">
+      <div className="w-11/12 mx-auto navbar gap-5 flex items-center justify-between">
+        <div className="flex">
           <Link to="/" className="btn btn-ghost sm:text-xl">
-            <FaRocketchat className="sm:text-5xl text-yellow-500 font-extrabold" />
+            <FaRocketchat className="sm:text-4xl text-yellow-500 font-extrabold" />
             ParcelCall
           </Link>
-        </div>
+      </div>
 
-        <button className="md:hidden text-white text-2xl" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? <HiX /> : <HiMenu />} {/* Show X icon when menu is open */}
+      <button className="md:hidden text-white text-2xl" onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? <HiX /> : <HiMenu />}
       </button>
       
-      <div className="flex-1 sm:gap-8">
+      <div className="flex sm:gap-8">
       <div className="flex items-center justify-between w-full z-50">
       <div className="hidden md:flex items-center gap-8">
+        <a className="nav-link hover:text-yellow-400 transition-colors duration-300">
+          About Us
+        </a>
+        <a className="nav-link hover:text-yellow-400 transition-colors duration-300">
+          Services
+        </a>
+        <a className="nav-link hover:text-yellow-400 transition-colors duration-300">
+          Pages
+        </a>
+        <a className="nav-link hover:text-yellow-400 transition-colors duration-300">
+          Blogs
+        </a>
+        <NavLink to="/contact" className="nav-link hover:text-yellow-400 transition-colors duration-300">
+          Contact
+        </NavLink>
         <a href="#Statistics" className="nav-link hover:text-yellow-400 transition-colors duration-300">
           STATISTICS
         </a>
@@ -80,8 +95,7 @@ const Navbar = () => {
       </div>
       </div>
 
-
-        <div className="flex-none text-black">
+      <div className="flex text-black">
           {/* Dark mode toggle button */}
           <button
             onClick={toggleDarkMode}
@@ -134,7 +148,8 @@ const Navbar = () => {
               Login
             </Link>
           )}
-        </div>
+      </div>
+
       </div>
     </div>
   );

@@ -16,9 +16,7 @@ const Home = () => {
             <OurFeature></OurFeature>
             {/* statistic section */}
             <Statistic></Statistic>
-            {/* Total booked parcel */}
-            <BookParcel></BookParcel>
-            {/* Reviews Details */}0
+            {/* Reviews Details */}
             <Review></Review>
             {/* About section */}
             <About></About>

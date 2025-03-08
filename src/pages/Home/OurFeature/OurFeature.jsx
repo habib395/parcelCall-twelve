@@ -19,7 +19,7 @@ const OurFeature = () => {
         {/* Feature Card 1 */}
         <div
           className="bg-yellow-100 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-200 dark:bg-gray-800 dark:text-gray-100"
-          data-aos="fade-up"
+          data-aos="fade-down"
         >
           <div className="flex justify-center text-5xl text-yellow-600">
             <MdHealthAndSafety />
@@ -51,7 +51,7 @@ const OurFeature = () => {
         {/* Feature Card 3 */}
         <div
           className="bg-yellow-100 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-200 dark:bg-gray-800 dark:text-gray-100"
-          data-aos="fade-up"
+          data-aos="fade-down"
         >
           <div className="flex justify-center text-5xl text-yellow-600">
             <GiStairsGoal />
