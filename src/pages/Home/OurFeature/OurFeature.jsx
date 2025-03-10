@@ -13,7 +13,6 @@ const OurFeature = () => {
 
   return (
     <div className="py-10 w-11/12 mx-auto dark:bg-gray-900 dark:text-white">
-
       <SectionTitle heading={"Our Features"} />
       <div className="grid md:grid-cols-3 gap-8 items-center">
         {/* Feature Card 1 */}
@@ -44,7 +43,8 @@ const OurFeature = () => {
             Super Fast Delivery
           </h2>
           <p className="text-center text-gray-700 mt-2 dark:text-gray-300">
-            Get your products delivered at lightning speed with real-time tracking.
+            Get your products delivered at lightning speed with real-time
+            tracking.
           </p>
         </div>
 
@@ -60,7 +60,8 @@ const OurFeature = () => {
             Our Mission
           </h2>
           <p className="text-center text-gray-700 mt-2 dark:text-gray-300">
-            We aim to provide a seamless and efficient parcel delivery experience.
+            We aim to provide a seamless and efficient parcel delivery
+            experience.
           </p>
         </div>
       </div>
