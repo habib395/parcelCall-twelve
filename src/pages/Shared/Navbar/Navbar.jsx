@@ -41,7 +41,7 @@ const Navbar = () => {
       <div className="w-11/12 mx-auto navbar gap-5 flex items-center justify-between">
         <div className="flex">
           <Link to="/" className="btn btn-ghost sm:text-xl">
-            <FaRocketchat className="sm:text-4xl text-yellow-500 font-extrabold" />
+            <FaRocketchat className="sm:text-4xl text-blue-600 font-extrabold" />
             ParcelCall
           </Link>
       </div>
@@ -54,13 +54,13 @@ const Navbar = () => {
       <div className="flex items-center justify-between w-full z-50">
       <div className="hidden md:flex items-center gap-8">
         <a href="#Statistics" className="nav-link hover:text-yellow-400 transition-colors duration-300">
-          STATISTICS
+           Statistic
         </a>
         <a href="#Reviews" className="nav-link hover:text-yellow-400 transition-colors duration-300">
-          REVIEWS
+          Reviews
         </a>
         <a href="#about" className="nav-link hover:text-yellow-400 transition-colors duration-300">
-          ABOUT US
+          About Us
         </a>
         <a href="#contact" className="nav-link hover:text-yellow-400 transition-colors duration-300">
           Contact Us

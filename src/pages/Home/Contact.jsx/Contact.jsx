@@ -3,6 +3,8 @@ import { FaPhoneAlt, FaWhatsapp, FaMapMarkerAlt, FaRegArrowAltCircleUp } from "r
 import { BsLinkedin } from "react-icons/bs";
 import { IoLogoFacebook } from "react-icons/io";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import { motion } from 'framer-motion';
+import bannerImage from "../../../../assets/contact.jpg"
 
 const Contact = () => {
   return (
@@ -12,8 +14,21 @@ const Contact = () => {
         {/* Background */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url(https://i.ibb.co/1GQZc26T/contact.jpg)" }}
-        ></div>
+         
+        >
+           <motion.img
+        src={bannerImage}
+        alt="Banner"
+        className="absolute inset-0 w-full h-full object-cover"
+        initial={{ scale: 1 }}
+        animate={{ scale: 1.1 }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",}}
+      ></motion.img>
+        </div>
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
         {/* Main Content */}
@@ -25,19 +40,19 @@ const Contact = () => {
             </h1>
             <div className="space-y-4 text-lg text-gray-300">
               <p className="flex items-center gap-3">
-                <MdEmail className="text-yellow-400 text-2xl" />
+                <MdEmail className="text-blue-500 text-2xl" />
                 md.habiburrahmanjwd@gmail.com
               </p>
               <p className="flex items-center gap-3">
-                <FaPhoneAlt className="text-yellow-400 text-2xl" />
+                <FaPhoneAlt className="text-blue-500 text-2xl" />
                 +880 1742923499
               </p>
               <p className="flex items-center gap-3">
-                <FaWhatsapp className="text-yellow-400 text-2xl" />
+                <FaWhatsapp className="text-blue-500 text-2xl" />
                 +880 1742923499
               </p>
               <p className="flex items-center gap-3">
-                <FaMapMarkerAlt className="text-yellow-400 text-2xl" />
+                <FaMapMarkerAlt className="text-blue-500 text-2xl" />
                 Rajshahi, Bangladesh
               </p>
             </div>
@@ -72,53 +87,53 @@ const Contact = () => {
       <div className="py-16 w-11/12 mx-auto">
         <SectionTitle heading="Connect with Me" />
         <div className="grid md:grid-cols-3 gap-10 mt-10">
-          {/* LinkedIn */}
-          <div className="bg-yellow-100 hover:bg-yellow-200 dark:bg-gray-800 dark:hover:bg-gray-700 p-8 rounded-2xl text-center transition shadow-lg">
-            <div className="flex justify-center items-center gap-4 text-5xl text-yellow-600 mb-4">
-              <a
-                href="https://www.linkedin.com/in/md-habibur-rahman-205038350/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-yellow-700 transition"
-              >
-                <BsLinkedin />
-              </a>
-              <FaRegArrowAltCircleUp />
-            </div>
-            <h2 className="text-xl font-bold">LinkedIn</h2>
-            <p className="text-gray-700 dark:text-gray-300 mt-2">
-              Join me on LinkedIn for secure delivery solutions!
-            </p>
-          </div>
+        {/* LinkedIn */}
+<div className="bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 p-8 rounded-2xl text-center transition shadow-lg">
+  <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-yellow-400 mb-4">
+    <a
+      href="https://www.linkedin.com/in/md-habibur-rahman-205038350/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-blue-800 transition"
+    >
+      <BsLinkedin />
+    </a>
+    <FaRegArrowAltCircleUp />
+  </div>
+  <h2 className="text-xl font-bold text-gray-800 dark:text-white">LinkedIn</h2>
+  <p className="text-gray-600 dark:text-gray-300 mt-2">
+    Join me on LinkedIn for secure delivery solutions!
+  </p>
+</div>
 
-          {/* Facebook */}
-          <div className="bg-yellow-100 hover:bg-yellow-200 dark:bg-gray-800 dark:hover:bg-gray-700 p-8 rounded-2xl text-center transition shadow-lg">
-            <div className="flex justify-center items-center gap-4 text-5xl text-yellow-600 mb-4">
-              <a
-                href="https://www.facebook.com/md.habibur.rahman.sujon.788802"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-yellow-700 transition"
-              >
-                <IoLogoFacebook />
-              </a>
-              <FaRegArrowAltCircleUp />
-            </div>
-            <h2 className="text-xl font-bold">Facebook</h2>
-            <p className="text-gray-700 dark:text-gray-300 mt-2">
-              Join me on Facebook for lightning-fast delivery with real-time tracking!
-            </p>
-          </div>
+{/* Facebook */}
+<div className="bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 p-8 rounded-2xl text-center transition shadow-lg">
+  <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-yellow-400 mb-4">
+    <a
+      href="https://www.facebook.com/md.habibur.rahman.sujon.788802"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-blue-800 transition"
+    >
+      <IoLogoFacebook />
+    </a>
+    <FaRegArrowAltCircleUp />
+  </div>
+  <h2 className="text-xl font-bold text-gray-800 dark:text-white">Facebook</h2>
+  <p className="text-gray-600 dark:text-gray-300 mt-2">
+    Join me on Facebook for lightning-fast delivery with real-time tracking!
+  </p>
+</div>
 
-          {/* Email */}
-          <div className="bg-yellow-100 hover:bg-yellow-200 dark:bg-gray-800 dark:hover:bg-gray-700 p-8 rounded-2xl text-center transition shadow-lg">
-            <div className="flex justify-center items-center gap-4 text-5xl text-yellow-600 mb-4">
-              <MdEmail />
-            </div>
-            <h2 className="text-xl font-bold">Email</h2>
-            <p className="text-gray-700 dark:text-gray-300 mt-2">md.habiburrahmanjwd@gmail.com</p>
-            <p className="text-gray-700 dark:text-gray-300">Send mail anytime!</p>
-          </div>
+{/* Email */}
+<div className="bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 p-8 rounded-2xl text-center transition shadow-lg">
+  <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-yellow-400 mb-4">
+    <MdEmail />
+  </div>
+  <h2 className="text-xl font-bold text-gray-800 dark:text-white">Email</h2>
+  <p className="text-gray-600 text-xs dark:text-gray-300 mt-2">md.habiburrahmanjwd@gmail.com</p>
+  <p className="text-gray-600 dark:text-gray-300">Send mail anytime!</p>
+</div>
         </div>
       </div>
     </div>

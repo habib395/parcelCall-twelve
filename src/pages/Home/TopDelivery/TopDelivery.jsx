@@ -27,7 +27,7 @@ const TopDelivery = () => {
   return (
     <section className="py-16 px-6 bg-white dark:bg-gray-900 transition-all duration-300">
       <div className="max-w-7xl mx-auto">
-        <SectionTitle heading="🏆 Top Delivery Men" />
+        <SectionTitle heading="Top Delivery Men" />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
           {topDeliveryMen.map((man) => (
@@ -49,10 +49,10 @@ const TopDelivery = () => {
                 </h2>
 
                 <p className="mt-2 text-gray-600 dark:text-gray-300 text-sm">
-                  📦 <strong>Parcels Delivered:</strong> {man.parcelsDelivered || 0}
+                  <strong>Parcels Delivered:</strong> {man.parcelsDelivered || 0}
                 </p>
                 <p className="mt-1 text-gray-600 dark:text-gray-300 text-sm">
-                  ⭐ <strong>Rating:</strong> {man.averageReview === 0 ? "No reviews" : man.averageReview.toFixed(1)}
+                  <strong>Rating:</strong> {man.averageReview === 0 ? "No reviews" : man.averageReview.toFixed(1)}
                 </p>
               </div>
             </div>

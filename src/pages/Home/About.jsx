@@ -43,7 +43,7 @@ const About = () => {
             className="bg-white dark:bg-zinc-800 border border-gray-200 dark:border-gray-700 shadow-md rounded-2xl p-8 lg:p-10 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
             data-aos={index % 2 === 0 ? "fade-up" : "fade-down"}
           >
-            <div className="text-5xl lg:text-7xl text-yellow-500 mb-4">{item.icon}</div>
+            <div className="text-5xl lg:text-7xl text-blue-500 mb-4">{item.icon}</div>
             <h2 className="text-2xl font-bold text-gray-800 dark:text-yellow-400 mb-3">
               {item.title}
             </h2>

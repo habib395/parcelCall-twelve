@@ -36,7 +36,7 @@ const Banner = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <h1 className="text-yellow-400 text-7xl font-extrabold drop-shadow-lg">
+            <h1 className="text-white text-7xl font-extrabold drop-shadow-lg">
               Express Home Delivery
             </h1>
           </motion.div>
