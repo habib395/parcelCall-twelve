@@ -7,7 +7,8 @@ import LoadingSpinner from "../../../../pages/Shared/LoadingSpinner";
 const AllDeliveryMan = () => {
   const axiosSecure = useAxiosSecure();
   const [loading, setLoading] = useState(true);
-  const [deliveryMen, setDeliveryMen] = useState(true);
+  const [deliveryMen, setDeliveryMen] = useState([]);
+  console.log(deliveryMen)
 
   useEffect(() => {
     const fetchDeliveryMen = async () => {

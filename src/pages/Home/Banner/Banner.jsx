@@ -1,16 +1,22 @@
 import { motion } from "framer-motion";
+import bannerImage from "../../../../assets/banner.jpg"
 
 const Banner = () => {
   return (
     <div className="relative min-h-[70vh] lg:min-h-[80vh] overflow-hidden flex items-center px-8 lg:px-20 z-10">
       {/* Animated Background Image */}
-      <motion.div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url(https://i.ibb.co/FkThzw9X/banneru.jpg)" }}
+      <motion.img
+        src={bannerImage}
+        alt="Banner"
+        className="absolute inset-0 w-full h-full object-cover"
         initial={{ scale: 1 }}
-        animate={{ scale: 1.1 }} // Subtle zoom-in effect
-        transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-      ></motion.div>
+        animate={{ scale: 1.1 }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",}}
+      ></motion.img>
 
       {/* Dark Overlay for Readability */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>

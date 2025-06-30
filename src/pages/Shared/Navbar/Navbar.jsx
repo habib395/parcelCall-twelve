@@ -53,21 +53,6 @@ const Navbar = () => {
       <div className="flex sm:gap-8">
       <div className="flex items-center justify-between w-full z-50">
       <div className="hidden md:flex items-center gap-8">
-        <a className="nav-link hover:text-yellow-400 transition-colors duration-300">
-          About Us
-        </a>
-        <a className="nav-link hover:text-yellow-400 transition-colors duration-300">
-          Services
-        </a>
-        <a className="nav-link hover:text-yellow-400 transition-colors duration-300">
-          Pages
-        </a>
-        <a className="nav-link hover:text-yellow-400 transition-colors duration-300">
-          Blogs
-        </a>
-        <NavLink to="/contact" className="nav-link hover:text-yellow-400 transition-colors duration-300">
-          Contact
-        </NavLink>
         <a href="#Statistics" className="nav-link hover:text-yellow-400 transition-colors duration-300">
           STATISTICS
         </a>
@@ -76,6 +61,9 @@ const Navbar = () => {
         </a>
         <a href="#about" className="nav-link hover:text-yellow-400 transition-colors duration-300">
           ABOUT US
+        </a>
+        <a href="#contact" className="nav-link hover:text-yellow-400 transition-colors duration-300">
+          Contact Us
         </a>
       </div>
 

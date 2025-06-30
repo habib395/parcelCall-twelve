@@ -11,59 +11,49 @@ const About = () => {
     AOS.init({ duration: 3000 });
   }, []);
 
+  const items = [
+    {
+      title: "OUR MISSION",
+      description:
+        "We strive to deliver exceptional service with reliability, innovation, and dedication, ensuring every client experiences seamless solutions that drive success and efficiency in their journey.",
+      icon: <GoGoal />,
+    },
+    {
+      title: "WHAT WE OFFER",
+      description:
+        "Our comprehensive services include cutting-edge technology, user-friendly solutions, and customer-centric support, designed to enhance productivity, streamline operations, and provide outstanding value tailored to your unique needs.",
+      icon: <MdLocalOffer />,
+    },
+    {
+      title: "OUR PROMISE",
+      description:
+        "We guarantee transparency, quality, and unwavering commitment to customer satisfaction, ensuring every interaction is met with excellence, trust, and a dedication to exceeding expectations at every step.",
+      icon: <RiChatVoiceAiFill />,
+    },
+  ];
+
   return (
-      <div id="about">
-        <SectionTitle heading={"About Us"}></SectionTitle>
-           <div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-10">
-      {/* OUR MISSION */}
-      <div
-        className="bg-yellow-100 dark:bg-gray-800 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-200 dark:hover:bg-gray-700"
-        data-aos="fade-up"
-      >
-        <p className="text-4xl lg:text-7xl text-center text-yellow-600 dark:text-yellow-400">
-          <GoGoal />
-        </p>
-        <h2 className="text-xl lg:text-2xl font-bold text-center text-gray-800 dark:text-gray-200 py-2">
-          OUR MISSION
-        </h2>
-        <p className="text-center text-gray-700 dark:text-gray-300">
-          We strive to deliver exceptional service with reliability, innovation, and dedication, ensuring every client experiences seamless solutions that drive success and efficiency in their journey.
-        </p>
-      </div>
+    <section id="about" className="bg-gray-50 dark:bg-gray-900 transition-all duration-300 py-16 px-4 md:px-10">
+      <SectionTitle heading="About Us" />
 
-      {/* WHAT WE OFFER */}
-      <div
-        className="bg-yellow-100 dark:bg-gray-800 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-200 dark:hover:bg-gray-700"
-        data-aos="fade-up"
-      >
-        <p className="text-4xl lg:text-7xl text-center text-yellow-600 dark:text-yellow-400">
-          <MdLocalOffer />
-        </p>
-        <h2 className="text-xl lg:text-2xl font-bold text-center text-gray-800 dark:text-gray-200 py-2">
-          WHAT WE OFFER
-        </h2>
-        <p className="text-center text-gray-700 dark:text-gray-300">
-          Our comprehensive services include cutting-edge technology, user-friendly solutions, and customer-centric support, designed to enhance productivity, streamline operations, and provide outstanding value tailored to your unique needs.
-        </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 w-11/12 mx-auto">
+        {items.map((item, index) => (
+          <div
+            key={index}
+            className="bg-white dark:bg-zinc-800 border border-gray-200 dark:border-gray-700 shadow-md rounded-2xl p-8 lg:p-10 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            data-aos={index % 2 === 0 ? "fade-up" : "fade-down"}
+          >
+            <div className="text-5xl lg:text-7xl text-yellow-500 mb-4">{item.icon}</div>
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-yellow-400 mb-3">
+              {item.title}
+            </h2>
+            <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+              {item.description}
+            </p>
+          </div>
+        ))}
       </div>
-
-      {/* OUR PROMISE */}
-      <div
-        className="bg-yellow-100 dark:bg-gray-800 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-200 dark:hover:bg-gray-700"
-        data-aos="fade-down"
-      >
-        <p className="text-4xl lg:text-7xl text-center text-yellow-600 dark:text-yellow-400">
-          <RiChatVoiceAiFill />
-        </p>
-        <h2 className="text-xl lg:text-2xl font-bold text-center text-gray-800 dark:text-gray-200 py-2">
-          OUR PROMISE
-        </h2>
-        <p className="text-center text-gray-700 dark:text-gray-300">
-          We guarantee transparency, quality, and unwavering commitment to customer satisfaction, ensuring every interaction is met with excellence, trust, and a dedication to exceeding expectations at every step.
-        </p>
-      </div>
-    </div>
-    </div>
+    </section>
   );
 };
 

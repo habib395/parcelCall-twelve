@@ -11,59 +11,44 @@ const OurFeature = () => {
     AOS.init({ duration: 2000 });
   }, []);
 
+  const features = [
+    {
+      icon: <MdHealthAndSafety />,
+      title: "Parcel Safety",
+      desc: "We ensure secure handling and tracking for all deliveries.",
+    },
+    {
+      icon: <FaShippingFast />,
+      title: "Super Fast Delivery",
+      desc: "Get your products delivered at lightning speed with real-time tracking.",
+    },
+    {
+      icon: <GiStairsGoal />,
+      title: "Our Mission",
+      desc: "We aim to provide a seamless and efficient parcel delivery experience.",
+    },
+  ];
+
   return (
-    <div className="py-10 w-11/12 mx-auto dark:bg-gray-900 dark:text-white">
+    <div className="py-16 px-4 md:px-8 lg:px-20 w-full bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <SectionTitle heading={"Our Features"} />
-      <div className="grid md:grid-cols-3 gap-8 items-center">
-        {/* Feature Card 1 */}
-        <div
-          className="bg-yellow-100 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-200 dark:bg-gray-800 dark:text-gray-100"
-          data-aos="fade-down"
-        >
-          <div className="flex justify-center text-5xl text-yellow-600">
-            <MdHealthAndSafety />
-          </div>
-          <h2 className="text-2xl font-bold text-center text-gray-800 pt-4 dark:text-yellow-400">
-            Parcel Safety
-          </h2>
-          <p className="text-center text-gray-700 mt-2 dark:text-gray-300">
-            We ensure secure handling and tracking for all deliveries.
-          </p>
-        </div>
 
-        {/* Feature Card 2 */}
-        <div
-          className="bg-yellow-100 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-200 dark:bg-gray-800 dark:text-gray-100"
-          data-aos="fade-up"
-        >
-          <div className="flex justify-center text-5xl text-yellow-600">
-            <FaShippingFast />
+      <div className="grid md:grid-cols-3 gap-8 mt-10">
+        {features.map((feature, index) => (
+          <div
+            key={index}
+            className="bg-white dark:bg-zinc-800 p-8 rounded-3xl shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center border border-gray-100 dark:border-gray-700"
+            data-aos={index % 2 === 0 ? "fade-down" : "fade-up"}
+          >
+            <div className="text-5xl text-indigo-600 dark:text-yellow-400 mb-4 flex justify-center">
+              {feature.icon}
+            </div>
+            <h3 className="text-2xl font-semibold text-gray-800 dark:text-yellow-300 mb-2">
+              {feature.title}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300">{feature.desc}</p>
           </div>
-          <h2 className="text-2xl font-bold text-center text-gray-800 pt-4 dark:text-yellow-400">
-            Super Fast Delivery
-          </h2>
-          <p className="text-center text-gray-700 mt-2 dark:text-gray-300">
-            Get your products delivered at lightning speed with real-time
-            tracking.
-          </p>
-        </div>
-
-        {/* Feature Card 3 */}
-        <div
-          className="bg-yellow-100 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-200 dark:bg-gray-800 dark:text-gray-100"
-          data-aos="fade-down"
-        >
-          <div className="flex justify-center text-5xl text-yellow-600">
-            <GiStairsGoal />
-          </div>
-          <h2 className="text-2xl font-bold text-center text-gray-800 pt-4 dark:text-yellow-400">
-            Our Mission
-          </h2>
-          <p className="text-center text-gray-700 mt-2 dark:text-gray-300">
-            We aim to provide a seamless and efficient parcel delivery
-            experience.
-          </p>
-        </div>
+        ))}
       </div>
     </div>
   );

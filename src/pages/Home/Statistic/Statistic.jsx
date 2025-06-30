@@ -17,45 +17,39 @@ const Statistic = () => {
 
   if (isLoading) return <LoadingSpinner />;
 
+  const stats = [
+    {
+      label: "Total Parcels Booked",
+      value: statData?.parcelBooked,
+    },
+    {
+      label: "Total Parcels Delivered",
+      value: statData?.parcelDelivered,
+    },
+    {
+      label: "Total Users",
+      value: statData?.TotalUser,
+    },
+  ];
+
   return (
-    <div id="Statistics" className="py-10 w-11/12 mx-auto">
-      <SectionTitle heading={"Statistics"} />
-      <div className="grid md:grid-cols-3 gap-8 items-center">
-        {/* Statistic Card 1 */}
-        <div
-          className="bg-yellow-100 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-200 dark:bg-gray-800 dark:text-white"
-        >
-          <h2 className="text-2xl font-bold text-center text-gray-800 pb-2 dark:text-white">
-            Total Parcels Booked
-          </h2>
-          <p className="text-center text-3xl font-semibold text-yellow-600 ">
-            {statData?.parcelBooked}
-          </p>
-        </div>
+    <div id="Statistics" className="py-16 px-4 md:px-10 lg:px-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <SectionTitle heading="Statistics" />
 
-        {/* Statistic Card 2 */}
-        <div
-          className="bg-yellow-100 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-200 dark:bg-gray-800 dark:text-white"
-        >
-          <h2 className="text-2xl font-bold text-center text-gray-800 pb-2  dark:text-white">
-            Total Parcels Delivered
-          </h2>
-          <p className="text-center text-3xl font-semibold text-yellow-600">
-            {statData?.parcelDelivered}
-          </p>
-        </div>
-
-        {/* Statistic Card 3 */}
-        <div
-          className="bg-yellow-100 shadow-lg p-6 lg:p-10 rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-200 dark:bg-gray-800 dark:text-white"
-        >
-          <h2 className="text-2xl font-bold text-center text-gray-800 pb-2 dark:text-white">
-            Total Users
-          </h2>
-          <p className="text-center text-3xl font-semibold text-yellow-600">
-            {statData?.TotalUser}
-          </p>
-        </div>
+      <div className="grid md:grid-cols-3 gap-8 mt-10">
+        {stats.map((stat, idx) => (
+          <div
+            key={idx}
+            className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-gray-700 p-8 rounded-3xl shadow-md hover:shadow-xl transition-transform hover:scale-105 duration-300 text-center"
+          >
+            <h2 className="text-xl font-semibold text-gray-700 dark:text-yellow-300 mb-2">
+              {stat.label}
+            </h2>
+            <p className="text-4xl font-bold text-indigo-600 dark:text-yellow-400">
+              {stat.value ?? 0}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );

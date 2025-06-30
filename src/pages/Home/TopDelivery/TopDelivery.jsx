@@ -25,36 +25,41 @@ const TopDelivery = () => {
   if (loading) return <LoadingSpinner />;
 
   return (
-    <div className="container mx-auto py-10 px-6 dark:bg-gray-900 dark:text-white">
-      <SectionTitle heading={"🏆 Top Delivery Men"} />
-      
-      <div className="flex flex-wrap justify-center gap-8 py-5">
-        {topDeliveryMen.map((man) => (
-          <div
-            key={man._id}
-            className="bg-yellow-100 border-2 border-yellow-500 rounded-xl shadow-lg w-80 transform transition duration-300 hover:scale-105 hover:shadow-2xl dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700"
-          >
-            <figure className="overflow-hidden rounded-t-xl">
-              <img
-                src={man.image || "https://via.placeholder.com/150"}
-                alt={man.name}
-                className="w-full h-56 object-cover"
-              />
-            </figure>
+    <section className="py-16 px-6 bg-white dark:bg-gray-900 transition-all duration-300">
+      <div className="max-w-7xl mx-auto">
+        <SectionTitle heading="🏆 Top Delivery Men" />
 
-            <div className="p-5 text-center">
-              <h2 className="text-2xl font-bold text-yellow-700 dark:text-yellow-400">{man.name || "N/A"}</h2>
-              <p className="mt-2 text-yellow-600 font-medium dark:text-gray-400">
-                📦 <strong>Parcels Delivered:</strong> {man.parcelsDelivered || 0}
-              </p>
-              <p className="mt-1 text-yellow-600 font-medium dark:text-gray-400">
-                ⭐ <strong>Average Rating:</strong> {man.averageReview === 0 ? "No reviews" : man.averageReview}
-              </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+          {topDeliveryMen.map((man) => (
+            <div
+              key={man._id}
+              className="bg-white dark:bg-zinc-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
+            >
+              <div className="overflow-hidden rounded-t-2xl">
+                <img
+                  src={man.image || "https://via.placeholder.com/300x200"}
+                  alt={man.name}
+                  className="w-full h-56 object-cover transition-transform duration-300 hover:scale-110"
+                />
+              </div>
+
+              <div className="p-6 text-center">
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-yellow-400">
+                  {man.name || "Unnamed"}
+                </h2>
+
+                <p className="mt-2 text-gray-600 dark:text-gray-300 text-sm">
+                  📦 <strong>Parcels Delivered:</strong> {man.parcelsDelivered || 0}
+                </p>
+                <p className="mt-1 text-gray-600 dark:text-gray-300 text-sm">
+                  ⭐ <strong>Rating:</strong> {man.averageReview === 0 ? "No reviews" : man.averageReview.toFixed(1)}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

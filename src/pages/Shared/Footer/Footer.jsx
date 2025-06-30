@@ -2,39 +2,48 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-base-200 dark:bg-gray-900 text-center text-base-content dark:text-gray-300 p-10">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <footer className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-300 px-6 py-12 border-t border-gray-200 dark:border-gray-700">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {/* Services */}
-        <nav>
-          <h6 className="footer-title text-lg font-semibold text-gray-800 dark:text-gray-200">Services</h6>
-          <a className="link link-hover block">Branding</a>
-          <a className="link link-hover block">Design</a>
-          <a className="link link-hover block">Marketing</a>
-          <a className="link link-hover block">Advertisement</a>
-        </nav>
+        <div>
+          <h6 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Services</h6>
+          <ul className="space-y-2">
+            <li><a href="#" className="hover:text-yellow-500 transition">Branding</a></li>
+            <li><a href="#" className="hover:text-yellow-500 transition">Design</a></li>
+            <li><a href="#" className="hover:text-yellow-500 transition">Marketing</a></li>
+            <li><a href="#" className="hover:text-yellow-500 transition">Advertisement</a></li>
+          </ul>
+        </div>
 
         {/* Company */}
-        <nav>
-          <h6 className="footer-title text-lg font-semibold text-gray-800 dark:text-gray-200">Company</h6>
-          <a className="link link-hover block">About us</a>
-          <a className="link link-hover block">Contact</a>
-          <a className="link link-hover block">Jobs</a>
-          <a className="link link-hover block">Press kit</a>
-        </nav>
+        <div>
+          <h6 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Company</h6>
+          <ul className="space-y-2">
+            <li><a href="#about" className="hover:text-yellow-500 transition">About us</a></li>
+            <li><a href="#contact" className="hover:text-yellow-500 transition">Contact</a></li>
+            <li><a href="#" className="hover:text-yellow-500 transition">Jobs</a></li>
+            <li><a href="#" className="hover:text-yellow-500 transition">Press kit</a></li>
+          </ul>
+        </div>
 
         {/* Legal */}
-        <nav>
-          <h6 className="footer-title text-lg font-semibold text-gray-800 dark:text-gray-200">Legal</h6>
-          <a className="link link-hover block">Terms of use</a>
-          <a className="link link-hover block">Privacy policy</a>
-          <a className="link link-hover block">Cookie policy</a>
-        </nav>
+        <div>
+          <h6 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Legal</h6>
+          <ul className="space-y-2">
+            <li><a href="#" className="hover:text-yellow-500 transition">Terms of use</a></li>
+            <li><a href="#" className="hover:text-yellow-500 transition">Privacy policy</a></li>
+            <li><a href="#" className="hover:text-yellow-500 transition">Cookie policy</a></li>
+          </ul>
+        </div>
       </div>
 
+      {/* Divider */}
+      <div className="my-10 border-t border-gray-200 dark:border-gray-700"></div>
+
       {/* Copyright */}
-      <div className="text-center mt-6 text-sm text-gray-600 dark:text-gray-400">
-        © {new Date().getFullYear()} Your Company. All rights reserved.
-      </div>
+      <p className="text-center text-sm text-gray-500 dark:text-gray-400">
+        © {new Date().getFullYear()} <span className="font-semibold">Your Company</span>. All rights reserved.
+      </p>
     </footer>
   );
 };

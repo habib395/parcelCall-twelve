@@ -7,6 +7,7 @@ import Review from '../../Shared/Review';
 import BookParcel from '../../Shared/Navbar/BookParcel';
 import About from '../About';
 import AllDeliveryMan from './../../../components/Dashboard/Sidebar/Admin/AllDeliveryMan';
+import Contact from '../Contact.jsx/Contact';
 
 const Home = () => {
     return (
@@ -24,6 +25,8 @@ const Home = () => {
             <AllDeliveryMan></AllDeliveryMan>
             {/* Top Delivery Man  */}
             <TopDelivery></TopDelivery>
+            {/* contact us section */}
+            <Contact></Contact>
         </div>
     );
 };
