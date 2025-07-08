@@ -37,7 +37,7 @@ const Banner = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             <h1 className="text-white text-7xl font-extrabold drop-shadow-lg">
-              Express Home Delivery
+              Express Home <span className="text-blue-500">Delivery</span> 
             </h1>
           </motion.div>
 
@@ -55,7 +55,7 @@ const Banner = () => {
         </motion.div>
 
         {/* Vertical Line for Styling */}
-        <div className="hidden lg:block border-l-4 border-yellow-400 h-64"></div>
+        <div className="hidden lg:block border-l-4 border-blue-500 h-64"></div>
       </div>
     </div>
   );
