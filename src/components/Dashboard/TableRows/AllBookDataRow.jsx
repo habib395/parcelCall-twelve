@@ -31,7 +31,7 @@ const AllBookDataRow = ({ book, openModal }) => {
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm dark:bg-gray-800 dark:border-gray-700">
         <p className="text-gray-900 space-y-1 whitespace-no-wrap">
           <button
-            className={`btn ${status === "Delivered" ? "bg-gray-400 cursor-not-allowed" : "bg-yellow-500 hover:bg-yellow-600"} text-white px-4 py-2 rounded-md transition-all duration-300`}
+            className={`btn ${status === "Delivered" ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"} text-white px-4 py-2 rounded-md transition-all duration-300`}
             onClick={() => openModal(book)}
             disabled={status === "Delivered"}
           >

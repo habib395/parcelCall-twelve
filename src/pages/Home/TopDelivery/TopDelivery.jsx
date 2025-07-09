@@ -33,7 +33,7 @@ const TopDelivery = () => {
           {topDeliveryMen.map((man) => (
             <div
               key={man._id}
-              className="bg-white dark:bg-zinc-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
+              className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
             >
               <div className="overflow-hidden rounded-t-2xl">
                 <img
@@ -42,9 +42,8 @@ const TopDelivery = () => {
                   className="w-full h-56 object-cover transition-transform duration-300 hover:scale-110"
                 />
               </div>
-
               <div className="p-6 text-center">
-                <h2 className="text-xl font-semibold text-gray-800 dark:text-yellow-400">
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-blue-400">
                   {man.name || "Unnamed"}
                 </h2>
 

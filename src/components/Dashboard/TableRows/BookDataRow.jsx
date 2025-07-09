@@ -27,17 +27,14 @@ const BookDataRow = ({ book, refetch }) => {
       return;
     }
 
-    const confirmCancel = window.confirm(
-      "Are you sure want to cancel this booking?"
-    );
+    const confirmCancel = window.confirm("Are you sure you want to cancel this booking?");
     if (confirmCancel) {
       try {
         await axiosSecure.delete(`/books/${_id}`);
-        toast.success("Book successfully removed.");
+        toast.success("Booking successfully canceled.");
         refetch();
       } catch (err) {
-        console.log(err);
-        toast.error(err.response?.data);
+        toast.error(err?.response?.data || "Something went wrong");
       }
     }
   };
@@ -50,77 +47,82 @@ const BookDataRow = ({ book, refetch }) => {
 
   return (
     <>
-      <tr className="hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-300">
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm dark:bg-gray-800 dark:text-gray-100">
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <div className="block relative">
-                <p>{type}</p>
-              </div>
-            </div>
-          </div>
+      <tr className="hover:bg-blue-100 dark:hover:bg-gray-700 transition duration-300">
+        <td className="px-5 py-4 border-b bg-white text-sm text-gray-900 dark:bg-gray-800 dark:text-white dark:border-gray-700">
+          {type}
         </td>
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm dark:bg-gray-800 dark:text-gray-100">
-          <p className="text-gray-900 whitespace-no-wrap dark:bg-gray-800 dark:text-gray-100">{dateId}</p>
+        <td className="px-5 py-4 border-b bg-white text-sm text-gray-900 dark:bg-gray-800 dark:text-white dark:border-gray-700">
+          {dateId}
         </td>
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm dark:bg-gray-800 dark:text-gray-100">
-          <p className="text-gray-900 whitespace-no-wrap dark:bg-gray-800 dark:text-gray-100">{approximateDeliveryDate}</p>
+        <td className="px-5 py-4 border-b bg-white text-sm text-gray-900 dark:bg-gray-800 dark:text-white dark:border-gray-700">
+          {approximateDeliveryDate}
         </td>
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm dark:bg-gray-800 dark:text-gray-100">
-          <p className="text-gray-900 whitespace-no-wrap dark:bg-gray-800 dark:text-gray-100">{readableDate}</p>
+        <td className="px-5 py-4 border-b bg-white text-sm text-gray-900 dark:bg-gray-800 dark:text-white dark:border-gray-700">
+          {readableDate}
         </td>
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm dark:bg-gray-800 dark:text-gray-100">
-          <p className="text-gray-900 whitespace-no-wrap dark:bg-gray-800 dark:text-gray-100">{deliveryManId}</p>
+        <td className="px-5 py-4 border-b bg-white text-sm text-gray-900 dark:bg-gray-800 dark:text-white dark:border-gray-700">
+          {deliveryManId}
         </td>
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm dark:bg-gray-800 dark:text-gray-100">
-          <p className="text-gray-900 whitespace-no-wrap dark:bg-gray-800 dark:text-gray-100">{status}</p>
+        <td className="px-5 py-4 border-b bg-white text-sm font-semibold text-center dark:bg-gray-800 dark:border-gray-700">
+          <span
+            className={`px-2 py-1 rounded-full text-xs ${
+              status === "Delivered"
+                ? "bg-green-100 text-green-700 dark:bg-green-200 dark:text-green-800"
+                : status === "pending"
+                ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-200 dark:text-yellow-800"
+                : "bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300"
+            }`}
+          >
+            {status}
+          </span>
         </td>
-        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm dark:bg-gray-800 dark:text-gray-100">
-          <p className="text-gray-900 space-y-1 whitespace-no-wrap">
-            {status === "pending" && (
+        <td className="px-5 py-4 border-b bg-white text-sm dark:bg-gray-800 dark:border-gray-700 space-y-2">
+          {status === "pending" && (
+            <>
               <Link to={`/dashboard/update/${_id}`}>
-                <button className="btn btn-sm bg-blue-500 hover:bg-blue-600 text-white transition-all duration-300" title="Update booking">
+                <button
+                  className="w-full btn btn-sm bg-blue-500 hover:bg-blue-600 text-white transition duration-300"
+                  title="Update Booking"
+                >
                   Update
                 </button>
               </Link>
-            )}
-            {status === "pending" && (
               <button
                 onClick={handleCancelBooking}
-                className="btn btn-sm bg-red-500 hover:bg-red-600 text-white transition-all duration-300"
-                title="Cancel booking"
+                className="w-full btn btn-sm bg-red-500 hover:bg-red-600 text-white transition duration-300"
+                title="Cancel Booking"
               >
                 Cancel
               </button>
-            )}
-            {status === "Delivered" && (
               <button
-                onClick={() => setIsModalOpen(true)}
-                className="btn btn-sm bg-yellow-500 hover:bg-yellow-600 text-white transition-all duration-300"
-                disabled={isReviewCompleted}
-              >
-                {isReviewCompleted ? "Reviewed" : "Review"}
-              </button>
-            )}
-
-            {status === "pending" && (
-              <button
-                onClick={() => window.location.href = `checkout/${_id}`}
-                className="btn btn-sm bg-yellow-500 hover:bg-yellow-600 text-white transition-all duration-300"
+                onClick={() => (window.location.href = `checkout/${_id}`)}
+                className="w-full btn btn-sm bg-green-500 hover:bg-green-600 text-white transition duration-300"
+                title="Pay Now"
               >
                 Pay
               </button>
-            )}
-          </p>
+            </>
+          )}
+          {status === "Delivered" && (
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="w-full btn btn-sm bg-indigo-500 hover:bg-indigo-600 text-white transition duration-300"
+              disabled={isReviewCompleted}
+              title="Leave Review"
+            >
+              {isReviewCompleted ? "Reviewed" : "Review"}
+            </button>
+          )}
         </td>
       </tr>
+
       {isModalOpen && (
         <ReviewModal
           deliveryManId={deliveryManId}
           onClose={() => setIsModalOpen(false)}
           onSuccess={handleReviewSuccess}
           refetch={refetch}
-        ></ReviewModal>
+        />
       )}
     </>
   );

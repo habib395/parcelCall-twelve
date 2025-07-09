@@ -33,19 +33,19 @@ const Statistic = () => {
   ];
 
   return (
-    <div id="Statistics" className="py-16 px-4 md:px-10 lg:px-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div id="Statistics" className="py-16 px-4 md:px-10 lg:px-20 dark:bg-gray-900 dark:text-white bg-gray-50 transition-colors duration-300">
       <SectionTitle heading="Statistics" />
 
       <div className="grid md:grid-cols-3 gap-8 mt-10">
         {stats.map((stat, idx) => (
           <div
             key={idx}
-            className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-gray-700 p-8 rounded-3xl shadow-md hover:shadow-xl transition-transform hover:scale-105 duration-300 text-center"
+            className="bg-white dark:bg-gray-900 dark:text-white border border-gray-100 dark:border-gray-700 p-8 rounded-3xl shadow-md hover:shadow-xl transition-transform hover:scale-105 duration-300 text-center"
           >
-            <h2 className="text-xl font-semibold text-gray-700 dark:text-yellow-300 mb-2">
+            <h2 className="text-xl font-semibold text-gray-700 dark:text-blue-300 mb-2">
               {stat.label}
             </h2>
-            <p className="text-4xl font-bold text-indigo-600 dark:text-yellow-400">
+            <p className="text-4xl font-bold text-indigo-600 dark:text-blue-400">
               {stat.value ?? 0}
             </p>
           </div>

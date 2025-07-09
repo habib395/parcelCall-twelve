@@ -203,7 +203,7 @@ const AddParcel = ({ handleSubmit, imageUpload, setUploadImage, loading, handleW
           <button
             type="submit"
             value="submit"
-            className={`w-full py-4 bg-yellow-500 text-white font-semibold rounded ${
+            className={`w-full py-4 bg-blue-500 text-white font-semibold rounded ${
               loading ? 'opacity-50  cursor-not-allowed' : ''
             }`}
             disabled={loading}

@@ -33,18 +33,18 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="bg-gray-50 dark:bg-gray-900 transition-all duration-300 py-16 px-4 md:px-10">
+    <section id="about" className="bg-gray-50 dark:bg-gray-900 dark:text-white transition-all duration-300 py-16 px-4 md:px-10">
       <SectionTitle heading="About Us" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 w-11/12 mx-auto">
         {items.map((item, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-zinc-800 border border-gray-200 dark:border-gray-700 shadow-md rounded-2xl p-8 lg:p-10 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            className="bg-white dark:bg-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 shadow-md rounded-2xl p-8 lg:p-10 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
             data-aos={index % 2 === 0 ? "fade-up" : "fade-down"}
           >
             <div className="text-5xl lg:text-7xl text-blue-500 mb-4">{item.icon}</div>
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-yellow-400 mb-3">
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-blue-400 mb-3">
               {item.title}
             </h2>
             <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">

@@ -189,7 +189,7 @@ const MyDelivery = () => {
                     Deliver
                   </button>
                   <button
-                    className="btn btn-sm btn-yellow ml-2"
+                    className="btn btn-sm btn-blue ml-2"
                     onClick={() =>
                       handleViewLocation({
                         latitude: delivery.latitude,

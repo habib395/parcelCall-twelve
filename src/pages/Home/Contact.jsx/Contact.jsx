@@ -66,16 +66,16 @@ const Contact = () => {
                   type={label === "Your Email" ? "email" : "text"}
                   required
                   placeholder={label}
-                  className="peer w-full p-4 rounded-md bg-white/10 text-white placeholder-transparent focus:ring-2 focus:ring-yellow-400 outline-none"
+                  className="peer w-full p-4 rounded-md bg-white/10 text-white placeholder-transparent focus:ring-2 focus:ring-blue-400 outline-none"
                 />
-                <label className="absolute left-4 top-4 text-gray-300 text-lg peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:top-2 peer-focus:text-sm peer-focus:text-yellow-400 transition-all">
+                <label className="absolute left-4 top-4 text-gray-300 text-lg peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-400 transition-all">
                   {label}
                 </label>
               </div>
             ))}
             <button
               type="submit"
-              className="w-full py-3 rounded-full bg-gradient-to-r from-yellow-500 to-purple-600 text-white font-medium shadow-lg hover:scale-105 transition-all"
+              className="w-full py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium shadow-lg hover:scale-105 transition-all"
             >
               Send Message
             </button>
@@ -89,7 +89,7 @@ const Contact = () => {
         <div className="grid md:grid-cols-3 gap-10 mt-10">
         {/* LinkedIn */}
 <div className="bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 p-8 rounded-2xl text-center transition shadow-lg">
-  <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-yellow-400 mb-4">
+  <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-blue-400 mb-4">
     <a
       href="https://www.linkedin.com/in/md-habibur-rahman-205038350/"
       target="_blank"
@@ -108,7 +108,7 @@ const Contact = () => {
 
 {/* Facebook */}
 <div className="bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 p-8 rounded-2xl text-center transition shadow-lg">
-  <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-yellow-400 mb-4">
+  <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-blue-400 mb-4">
     <a
       href="https://www.facebook.com/md.habibur.rahman.sujon.788802"
       target="_blank"
@@ -127,7 +127,7 @@ const Contact = () => {
 
 {/* Email */}
 <div className="bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 p-8 rounded-2xl text-center transition shadow-lg">
-  <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-yellow-400 mb-4">
+  <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-blue-400 mb-4">
     <MdEmail />
   </div>
   <h2 className="text-xl font-bold text-gray-800 dark:text-white">Email</h2>

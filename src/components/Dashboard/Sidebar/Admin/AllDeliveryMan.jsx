@@ -8,7 +8,6 @@ const AllDeliveryMan = () => {
   const axiosSecure = useAxiosSecure();
   const [loading, setLoading] = useState(true);
   const [deliveryMen, setDeliveryMen] = useState([]);
-  console.log(deliveryMen)
 
   useEffect(() => {
     const fetchDeliveryMen = async () => {
@@ -24,51 +23,36 @@ const AllDeliveryMan = () => {
     fetchDeliveryMen();
   }, [axiosSecure]);
 
-  if (loading) return <LoadingSpinner></LoadingSpinner>;
+  if (loading) return <LoadingSpinner />;
 
   return (
-    <div className="container mx-auto px-4 sm:px-8">
-      <SectionTitle heading="All Delivery Men"></SectionTitle>
-      <div className="py-4">
-        <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-          <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
-            <table className="min-w-full leading-normal">
-              <thead>
-                <tr>
-                  <th
-                    scope="col"
-                    className="px-5 py-3 bg-white dark:bg-gray-800 border-b border-gray-200 text-gray-800 dark:text-white text-left text-sm uppercase font-bold"
-                  >
-                    Delivery Man's Name
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-5 py-3 bg-white dark:bg-gray-800 border-b border-gray-200 text-gray-800 dark:text-white text-left text-sm uppercase font-bold"
-                  >
-                    Phone Number
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-5 py-3 bg-white dark:bg-gray-800 border-b border-gray-200 text-gray-800 dark:text-white text-left text-sm uppercase font-bold"
-                  >
-                    Number of Parcels Delivered
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-5 py-3 bg-white dark:bg-gray-800 border-b border-gray-200 text-gray-800 dark:text-white text-left text-sm uppercase font-bold"
-                  >
-                    Average Review
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {deliveryMen?.map((user) => (
-                  <AllDeliveryRow key={user?._id} user={user} />
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+    <div className="mx-auto px-4 sm:px-20 selection:px-8 py-10 bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-500">
+      <SectionTitle heading="All Delivery Men" />
+
+      <div className="mt-6 overflow-x-auto shadow-lg rounded-xl">
+        <table className="min-w-full text-sm text-left table-auto">
+          <thead>
+            <tr className="border-b border-gray-200 dark:bg-gray-900 dark:text-white bg-white text-sm">
+              <th className="px-6 py-4 font-semibold text-gray-700 dark:text-gray-200 uppercase">
+                Delivery Man's Name
+              </th>
+              <th className="px-6 py-4 font-semibold text-gray-700 dark:text-gray-200 uppercase">
+                Phone Number
+              </th>
+              <th className="px-6 py-4 font-semibold text-gray-700 dark:text-gray-200 uppercase">
+                Parcels Delivered
+              </th>
+              <th className="px-6 py-4 font-semibold text-gray-700 dark:text-gray-200 uppercase">
+                Average Review
+              </th>
+            </tr>
+          </thead>
+          <tbody className="bg-white dark:bg-gray-900 ">
+            {deliveryMen?.map((user) => (
+              <AllDeliveryRow key={user?._id} user={user} />
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
