@@ -39,7 +39,7 @@ const BookParcel = () => {
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white dark:bg-gray-800 border border-gray-300 shadow-lg rounded-lg">
             <thead>
-              <tr className="bg-yellow-400 text-white uppercase tracking-wider dark:bg-gray-700 dark:text-gray-100">
+              <tr className="bg-blue-400 text-white uppercase tracking-wider dark:bg-gray-700 dark:text-gray-100">
                 <th className="py-3 px-4 border">#</th>
                 <th className="py-3 px-4 border">Name</th>
                 <th className="py-3 px-4 border">Email</th>
@@ -53,7 +53,7 @@ const BookParcel = () => {
               {book.map((item, index) => (
                 <tr
                   key={item._id}
-                  className="border-b transition-all duration-300 hover:bg-yellow-100 dark:hover:bg-gray-700"
+                  className="border-b transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700"
                 >
                   <td className="py-3 px-4 border text-center">{index + 1}</td>
                   <td className="py-3 px-4 border">{item.name}</td>
@@ -64,7 +64,7 @@ const BookParcel = () => {
                   <td
                     className={`py-3 px-4 border text-center font-semibold ${
                       item.status === "Delivered"
-                        ? "text-green-500 dark:text-green-400"
+                        ? "text-blue-500 dark:text-blue-400"
                         : "text-red-500 dark:text-red-400"
                     }`}
                   >

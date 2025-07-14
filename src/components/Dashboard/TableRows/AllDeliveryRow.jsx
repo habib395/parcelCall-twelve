@@ -1,6 +1,5 @@
 const AllDeliveryRow = ({ user }) => {
   const { name, phone, parcelsDelivered, averageReview } = user;
-  console.log(user)
   
   return (
     <tr className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
