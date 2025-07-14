@@ -14,9 +14,9 @@ const AllDeliveryMan = () => {
       try {
         const result = await axiosSecure(`/users/delivery/deliveryMan`);
         setDeliveryMen(result.data);
-        setLoading(false);
       } catch (error) {
         console.error("Failed to fetch delivery men", error);
+      } finally {
         setLoading(false);
       }
     };
@@ -26,28 +26,28 @@ const AllDeliveryMan = () => {
   if (loading) return <LoadingSpinner />;
 
   return (
-    <div className="mx-auto px-4 sm:px-20 selection:px-8 py-10 bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-500">
+    <div className="mx-auto px-4 sm:px-8 py-10 dark:bg-gray-900 dark:text-gray-100 bg-white text-gray-900 transition-all duration-300">
       <SectionTitle heading="All Delivery Men" />
 
-      <div className="mt-6 overflow-x-auto shadow-lg rounded-xl">
-        <table className="min-w-full text-sm text-left table-auto">
+      <div className="overflow-x-auto mt-6 rounded-lg shadow-lg bg-white dark:bg-gray-800">
+        <table className="min-w-full table-auto text-sm">
           <thead>
-            <tr className="border-b border-gray-200 dark:bg-gray-900 dark:text-white bg-white text-sm">
-              <th className="px-6 py-4 font-semibold text-gray-700 dark:text-gray-200 uppercase">
+            <tr className="text-left bg-gray-100 dark:bg-gray-700">
+              <th className="px-6 py-3 border-b border-gray-200 dark:border-gray-600 text-gray-800 dark:text-gray-100 uppercase font-semibold">
                 Delivery Man's Name
               </th>
-              <th className="px-6 py-4 font-semibold text-gray-700 dark:text-gray-200 uppercase">
+              <th className="px-6 py-3 border-b border-gray-200 dark:border-gray-600 text-gray-800 dark:text-gray-100 uppercase font-semibold">
                 Phone Number
               </th>
-              <th className="px-6 py-4 font-semibold text-gray-700 dark:text-gray-200 uppercase">
-                Parcels Delivered
+              <th className="px-6 py-3 border-b border-gray-200 dark:border-gray-600 text-gray-800 dark:text-gray-100 uppercase font-semibold">
+                Number of Parcels Delivered
               </th>
-              <th className="px-6 py-4 font-semibold text-gray-700 dark:text-gray-200 uppercase">
+              <th className="px-6 py-3 border-b border-gray-200 dark:border-gray-600 text-gray-800 dark:text-gray-100 uppercase font-semibold">
                 Average Review
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white dark:bg-gray-900 ">
+          <tbody>
             {deliveryMen?.map((user) => (
               <AllDeliveryRow key={user?._id} user={user} />
             ))}

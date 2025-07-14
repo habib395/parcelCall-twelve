@@ -82,7 +82,7 @@ To run this project locally, follow these steps:
 - npm install 
 - npm start
 - npm run dev
-- http://localhost:3000
+- 
 ### Notes:
 - Replace `[client-side-repo-link]` and `[server-side-repo-link]` with the actual GitHub repository URLs.
 - Update the `.env` variables with the necessary credentials for Firebase and MongoDB for both the client and server sides.
