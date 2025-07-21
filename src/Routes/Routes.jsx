@@ -67,7 +67,7 @@ export const router = createBrowserRouter([
         path: 'update/:id',
         element: <UpdateParcel></UpdateParcel>,
         loader: ({ params }) =>
-          axios.get(`https://parcel-server-three.vercel.app/books/${params.email}/${params.id}`).then((response) =>response.data)
+          axios.get(`https://parcel-call-server-side.vercel.app/books/${params.email}/${params.id}`).then((response) =>response.data)
       },
       {
         path: "my-order",
