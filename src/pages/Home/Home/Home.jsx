@@ -17,14 +17,14 @@ const Home = () => {
             <OurFeature></OurFeature>
             {/* statistic section */}
             <Statistic></Statistic>
-            {/* Reviews Details */}
-            <Review></Review>
             {/* About section */}
             <About></About>
             {/* All delivery Man */}
             <AllDeliveryMan></AllDeliveryMan>
             {/* Top Delivery Man  */}
             <TopDelivery></TopDelivery>
+            {/* Reviews Details */}
+            <Review></Review>
             {/* contact us section */}
             <Contact></Contact>
         </div>

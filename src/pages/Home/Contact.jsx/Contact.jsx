@@ -141,7 +141,7 @@ const Contact = () => {
             <h2 className="text-xl font-bold text-gray-800 dark:text-white">
               Email
             </h2>
-            <p className="text-blue-600 text-sm sm:text-xs dark:text-gray-300 mt-2">
+            <p className="text-xs sm:text-base dark:text-gray-300 mt-2">
               md.habiburrahmanjwd@gmail.com
             </p>
             <p className="text-gray-600 dark:text-gray-300">
