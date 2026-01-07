@@ -43,7 +43,7 @@ const TopDelivery = () => {
                 />
               </div>
               <div className="p-6 text-center">
-                <h2 className="text-xl font-semibold text-gray-800 dark:text-blue-400">
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
                   {man.name || "Unnamed"}
                 </h2>
 

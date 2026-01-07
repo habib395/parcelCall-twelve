@@ -28,10 +28,9 @@ const Review = () => {
   return (
     <div
       id="Reviews"
-      className="mx-auto py-12 sm:px-20 bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-500"
+      className="mx-auto  py-4 sm:py-12 sm:px-20 bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-500"
     >
       <SectionTitle heading={"Customer Reviews"} />
-
       {isLoading ? (
         <div className="flex justify-center items-center h-40">
           <LoadingSpinner />
@@ -41,13 +40,13 @@ const Review = () => {
           No reviews found in the backend.
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-8 mt-2 sm:mt-6">
           {reviewss.map((review) => (
             <div
               key={review._id}
-              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-xl shadow hover:shadow-md transition-all duration-300"
+              className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 m-4 sm:m-1 py-8 px-6 sm:p-8 rounded-xl shadow hover:shadow-md transition-all duration-300"
             >
-              <div className="flex items-center mb-4">
+              <div className="flex justify-between items-center mb-4">
                 <img
                   src={review.reviewerImage || "https://via.placeholder.com/150"}
                   alt="User"
@@ -66,7 +65,7 @@ const Review = () => {
               <div className="mb-3">
                 <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
                   Rating:{" "}
-                  <span className="text-blue-600 dark:text-blue-400">
+                  <span className="text-blue-600 dark:text-white">
                     {review.rating} / 5
                   </span>
                 </p>

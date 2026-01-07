@@ -42,10 +42,10 @@ const Statistic = () => {
             key={idx}
             className="bg-white dark:bg-gray-900 dark:text-white border border-gray-100 dark:border-gray-700 p-8 rounded-3xl shadow-md hover:shadow-xl transition-transform hover:scale-105 duration-300 text-center"
           >
-            <h2 className="text-xl font-semibold text-gray-700 dark:text-blue-300 mb-2">
+            <h2 className="text-xl font-semibold text-gray-700 dark:text-white mb-2">
               {stat.label}
             </h2>
-            <p className="text-4xl font-bold text-indigo-600 dark:text-blue-400">
+            <p className="text-4xl font-bold text-indigo-600 dark:text-white">
               {stat.value ?? 0}
             </p>
           </div>

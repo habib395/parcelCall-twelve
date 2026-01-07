@@ -9,11 +9,8 @@ import { HiMenu, HiX } from "react-icons/hi";
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
-  
-  // Dark mode state
   const [darkMode, setDarkMode] = useState(false);
 
-  // Check localStorage for saved theme
   useEffect(() => {
     const savedTheme = localStorage.getItem("darkMode");
     if (savedTheme === "true") {
@@ -22,33 +19,33 @@ const Navbar = () => {
     }
   }, []);
 
-  // Toggle dark mode
   const toggleDarkMode = () => {
     setDarkMode((prev) => {
       const newMode = !prev;
-      localStorage.setItem("darkMode", newMode); // Save theme in localStorage
+      localStorage.setItem("darkMode", newMode); 
       if (newMode) {
-        document.body.classList.add("dark"); // Add dark class to body
+        document.body.classList.add("dark"); 
       } else {
-        document.body.classList.remove("dark"); // Remove dark class from body
+        document.body.classList.remove("dark");
       }
       return newMode;
     });
   };
 
   return (
-    <div className="navbar sm:fixed bg-opacity-30 text-white bg-black z-50">
-      <div className="w-11/12 mx-auto navbar gap-5 flex items-center justify-between">
+    <div className="navbar sm:fixed bg-opacity-30 text-blue-500 dark:text-white dark:bg-black z-50 px-5">
+
+      <button className="md:hidden text-white sm:text-2xl" onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? <HiX /> : <HiMenu />}
+      </button>
+
+      <div className="mx-auto navbar gap-5 flex items-center justify-between">
         <div className="flex">
           <Link to="/" className="btn btn-ghost sm:text-xl">
-            <FaRocketchat className="sm:text-4xl text-blue-600 font-extrabold" />
+            <FaRocketchat className="text-5xl text-blue-600 font-extrabold" />
             ParcelCall
           </Link>
       </div>
-
-      <button className="md:hidden text-white text-2xl" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? <HiX /> : <HiMenu />}
-      </button>
       
       <div className="flex sm:gap-8">
       <div className="flex items-center justify-between w-full z-50">
@@ -93,9 +90,9 @@ const Navbar = () => {
             className="btn btn-ghost sm:text-xl text-white px-3"
           >
             {darkMode ? (
-              <FaSun className="text-blue-500" /> // Sun icon for light mode
+              <FaSun className="text-blue-500" /> 
             ) : (
-              <FaMoon className="text-gray-500" /> // Moon icon for dark mode
+              <FaMoon className="text-gray-500" /> 
             )}
           </button>
           {user?.email ? (

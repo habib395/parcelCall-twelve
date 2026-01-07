@@ -60,10 +60,10 @@ const OurFeature = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="text-5xl text-indigo-600 dark:text-blue-400 mb-4 flex justify-center">
+            <div className="text-5xl text-indigo-600  dark:text-white mb-4 flex justify-center">
               {feature.icon}
             </div>
-            <h3 className="text-2xl font-semibold text-gray-800 dark:text-blue-300 mb-2">
+            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-2">
               {feature.title}
             </h3>
             <p className="text-gray-600 dark:text-gray-300">{feature.desc}</p>

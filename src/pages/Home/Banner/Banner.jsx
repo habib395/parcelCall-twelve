@@ -36,14 +36,14 @@ const Banner = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <h1 className="text-white text-7xl font-extrabold drop-shadow-lg">
+            <h1 className="text-white text-4xl sm:text-7xl font-extrabold drop-shadow-lg">
               Express Home <span className="text-blue-500">Delivery</span> 
             </h1>
           </motion.div>
 
           {/* Animated Paragraph */}
           <motion.p
-            className="text-white text-lg mt-6 drop-shadow-md leading-relaxed"
+            className="text-white sm:text-lg mt-2 sm:mt-6 drop-shadow-md leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}

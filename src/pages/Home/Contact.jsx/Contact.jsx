@@ -1,33 +1,39 @@
 import { MdEmail } from "react-icons/md";
-import { FaPhoneAlt, FaWhatsapp, FaMapMarkerAlt, FaRegArrowAltCircleUp } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaWhatsapp,
+  FaMapMarkerAlt,
+  FaRegArrowAltCircleUp,
+} from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
 import { IoLogoFacebook } from "react-icons/io";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import { motion } from 'framer-motion';
-import bannerImage from "../../../../assets/contact.jpg"
+import { motion } from "framer-motion";
+import bannerImage from "../../../../assets/contact.jpg";
 
 const Contact = () => {
   return (
-    <div id="contact" className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
+    <div
+      id="contact"
+      className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white"
+    >
       {/* Hero Section */}
       <div className="relative min-h-[80vh] flex items-center px-8 lg:px-20 py-24">
         {/* Background */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-         
-        >
-           <motion.img
-        src={bannerImage}
-        alt="Banner"
-        className="absolute inset-0 w-full h-full object-cover"
-        initial={{ scale: 1 }}
-        animate={{ scale: 1.1 }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut",}}
-      ></motion.img>
+        <div className="absolute inset-0 bg-cover bg-center">
+          <motion.img
+            src={bannerImage}
+            alt="Banner"
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={{ scale: 1 }}
+            animate={{ scale: 1.1 }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+            }}
+          ></motion.img>
         </div>
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
@@ -35,31 +41,31 @@ const Contact = () => {
         <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between">
           {/* Left Info */}
           <div className="max-w-2xl text-left lg:pr-10 space-y-6">
-            <h1 className="text-5xl font-bold text-white leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-bold text-white text-center leading-tight">
               Let's Connect & Create Something Amazing!
             </h1>
-            <div className="space-y-4 text-lg text-gray-300">
-              <p className="flex items-center gap-3">
-                <MdEmail className="text-blue-500 text-2xl" />
+            <div className="space-y-4 text-lg text-gray-300 p-4">
+              <p className="flex items-center gap-3 text-base sm:text-xl">
+                <MdEmail className="text-blue-600 text-2xl" />
                 md.habiburrahmanjwd@gmail.com
               </p>
               <p className="flex items-center gap-3">
-                <FaPhoneAlt className="text-blue-500 text-2xl" />
+                <FaPhoneAlt className="text-blue-600 text-2xl" />
                 +880 1742923499
               </p>
               <p className="flex items-center gap-3">
-                <FaWhatsapp className="text-blue-500 text-2xl" />
+                <FaWhatsapp className="text-blue-600 text-2xl" />
                 +880 1742923499
               </p>
               <p className="flex items-center gap-3">
-                <FaMapMarkerAlt className="text-blue-500 text-2xl" />
+                <FaMapMarkerAlt className="text-blue-600 text-2xl" />
                 Rajshahi, Bangladesh
               </p>
             </div>
           </div>
 
           {/* Contact Form */}
-          <form className="bg-white/10 backdrop-blur-lg p-8 rounded-xl border border-white/20 w-full max-w-lg mt-10 lg:mt-0">
+          <form className="bg-white/10 backdrop-blur-lg p-5 sm:p-8 rounded-xl border border-white/20 w-full max-w-lg mt-10 lg:mt-0">
             {["Your Name", "Your Email", "Your Message"].map((label, i) => (
               <div key={i} className="relative mb-6">
                 <input
@@ -75,7 +81,7 @@ const Contact = () => {
             ))}
             <button
               type="submit"
-              className="w-full py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium shadow-lg hover:scale-105 transition-all"
+              className="w-full py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium shadow-lg hover:scale-105 transition-all"
             >
               Send Message
             </button>
@@ -87,53 +93,61 @@ const Contact = () => {
       <div className="py-16 w-11/12 mx-auto">
         <SectionTitle heading="Connect with Me" />
         <div className="grid md:grid-cols-3 gap-10 mt-10">
-        {/* LinkedIn */}
-<div className="bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 p-8 rounded-2xl text-center transition shadow-lg">
-  <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-blue-400 mb-4">
-    <a
-      href="https://www.linkedin.com/in/md-habibur-rahman-205038350/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-blue-800 transition"
-    >
-      <BsLinkedin />
-    </a>
-    <FaRegArrowAltCircleUp />
-  </div>
-  <h2 className="text-xl font-bold text-gray-800 dark:text-white">LinkedIn</h2>
-  <p className="text-gray-600 dark:text-gray-300 mt-2">
-    Join me on LinkedIn for secure delivery solutions!
-  </p>
-</div>
+          {/* LinkedIn */}
+          <div className="bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 p-8 rounded-2xl text-center transition shadow-lg">
+            <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-blue-400 mb-4">
+              <a
+                href="https://www.linkedin.com/in/md-habibur-rahman-205038350/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-800 transition"
+              >
+                <BsLinkedin />
+              </a>
+            </div>
+            <h2 className="text-xl font-bold text-gray-800 dark:text-white">
+              LinkedIn
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 mt-2">
+              Join me on LinkedIn for secure delivery solutions!
+            </p>
+          </div>
 
-{/* Facebook */}
-<div className="bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 p-8 rounded-2xl text-center transition shadow-lg">
-  <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-blue-400 mb-4">
-    <a
-      href="https://www.facebook.com/md.habibur.rahman.sujon.788802"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-blue-800 transition"
-    >
-      <IoLogoFacebook />
-    </a>
-    <FaRegArrowAltCircleUp />
-  </div>
-  <h2 className="text-xl font-bold text-gray-800 dark:text-white">Facebook</h2>
-  <p className="text-gray-600 dark:text-gray-300 mt-2">
-    Join me on Facebook for lightning-fast delivery with real-time tracking!
-  </p>
-</div>
+          {/* Facebook */}
+          <div className="bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 sm:p-8 rounded-2xl text-center transition shadow-lg p-4">
+            <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-blue-400 mb-4">
+              <a
+                href="https://www.facebook.com/md.habibur.rahman.sujon.788802"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-800 transition"
+              >
+                <IoLogoFacebook />
+              </a>
+            </div>
+            <h2 className="text-xl font-bold text-gray-800 dark:text-white">
+              Facebook
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 mt-2">
+              Join me on Facebook for lightning-fast delivery!
+            </p>
+          </div>
 
-{/* Email */}
-<div className="bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 p-8 rounded-2xl text-center transition shadow-lg">
-  <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-blue-400 mb-4">
-    <MdEmail />
-  </div>
-  <h2 className="text-xl font-bold text-gray-800 dark:text-white">Email</h2>
-  <p className="text-gray-600 text-xs dark:text-gray-300 mt-2">md.habiburrahmanjwd@gmail.com</p>
-  <p className="text-gray-600 dark:text-gray-300">Send mail anytime!</p>
-</div>
+          {/* Email */}
+          <div className="bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 p-8 rounded-2xl text-center transition shadow-lg">
+            <div className="flex justify-center items-center gap-4 text-5xl text-blue-600 dark:text-blue-400 mb-4">
+              <MdEmail />
+            </div>
+            <h2 className="text-xl font-bold text-gray-800 dark:text-white">
+              Email
+            </h2>
+            <p className="text-blue-600 text-sm sm:text-xs dark:text-gray-300 mt-2">
+              md.habiburrahmanjwd@gmail.com
+            </p>
+            <p className="text-gray-600 dark:text-gray-300">
+              Send mail anytime!
+            </p>
+          </div>
         </div>
       </div>
     </div>
