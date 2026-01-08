@@ -33,7 +33,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar sm:fixed bg-opacity-30 text-blue-500 dark:text-white dark:bg-black z-50 px-5">
+    <div className="navbar sm:fixed bg-opacity-30 text-blue-600 dark:text-white dark:bg-black z-50 px-5">
 
       <button className="md:hidden text-white sm:text-2xl" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? <HiX /> : <HiMenu />}
